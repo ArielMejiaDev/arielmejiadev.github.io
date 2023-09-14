@@ -42,18 +42,18 @@ const submit = function () {
 <template>
   <NuxtLayout>
 
-    <section class="text-gray-600 body-font relative min-h-screen bg-cover bg-no-repeat relative overflow-hidden" style="background: url('images/splatters/splatter-dark.png')">
+    <section class="text-gray-600 body-font relative min-h-screen bg-cover bg-no-repeat relative overflow-hidden" style="background: url('/images/splatters/splatter-dark.png')">
 
       <div class="hidden md:block absolute top-0 -left-10 z-0 transform rotate-45">
-        <img src="images/assets/5.png" alt="floating dark triangles">
+        <img src="/images/assets/5.png" alt="floating dark triangles">
       </div>
 
       <div class="hidden md:block absolute bottom-0 right-0 z-0 transform rotate-90">
-        <img src="images/assets/2.png" alt="floating yellow triangle">
+        <img src="/images/assets/2.png" alt="floating yellow triangle">
       </div>
 
       <div class="hidden md:block absolute bottom-24 left-0 z-0 transform rotate-90">
-        <img src="images/assets/10.png" alt="floating purple liquid">
+        <img src="/images/assets/10.png" alt="floating purple liquid">
       </div>
 
       <!-- Navbar -->
