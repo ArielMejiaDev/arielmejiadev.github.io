@@ -20,6 +20,8 @@ const posts = [
     },
   },
 ];
+
+const { data } = await useAsyncData('blog', () => queryContent('/blog').find())
 </script>
 
 <template>
@@ -33,6 +35,19 @@ const posts = [
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-4xl">
           <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+
+            <div v-if="data">
+
+              <ul>
+                <li v-for="(article, index) in data" :key="index">
+                  <NuxtLink :to="article._path">
+                    {{ article.title }}
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+
+
             <article v-for="post in posts" :key="post.id" class="relative isolate flex flex-col gap-8 lg:flex-row">
               <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                 <img :src="post.imageUrl" alt="" class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover" />

@@ -9,7 +9,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/content": "^2.8.2",
     "@nuxt/devtools": "latest",
+    "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.15",
     "nuxt": "^3.7.1",
     "postcss": "^8.4.29",

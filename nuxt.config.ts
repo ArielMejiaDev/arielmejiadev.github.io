@@ -8,4 +8,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  modules: [
+    '@nuxt/content'
+  ],
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: 'dracula'
+    }
+  },
 })
