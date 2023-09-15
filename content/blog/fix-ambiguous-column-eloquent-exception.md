@@ -1,5 +1,5 @@
 ---
-id: 12
+id: 13
 title: Fix Ambiguous Column Eloquent Query Exception in Laravel
 published: true
 description: Handle this relationship to get only the columns that you need from a relationship.

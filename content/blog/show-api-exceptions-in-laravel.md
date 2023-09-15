@@ -1,5 +1,5 @@
 ---
-id: 11
+id: 12
 title: Show API exceptions in Laravel.
 published: true
 description: Simple snippet to show exceptions on API development.

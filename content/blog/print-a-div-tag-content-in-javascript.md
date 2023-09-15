@@ -1,5 +1,5 @@
 ---
-id: 13
+id: 14
 title: Print a div tag content with Javascript.
 published: true
 description: Here I will add a script to print just a portion of an html page.
