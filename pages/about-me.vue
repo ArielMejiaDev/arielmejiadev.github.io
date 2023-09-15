@@ -40,7 +40,7 @@ import Talks from "./components/Talks";
 
             <div class="relative z-20 block mt-6 text-base font-semibold text-indigo-800 sm:text-center lg:text-left">
               <div class="my-4">
-                I love coffee... I was aeropress semifinalist in 2022 and got a third place in a brewers competition in 2023 locally.
+                I love coffee... I was aeropress semifinalist in 2022 and got a third place in a local brewers competition in 2023.
               </div>
 
               <div class="my-4">

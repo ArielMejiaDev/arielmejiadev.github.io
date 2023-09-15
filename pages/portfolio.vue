@@ -55,7 +55,7 @@ onMounted(() => {
         <button @click="selectFilter('own-packages')" :class="currentFilter === 'own-packages' ? 'bg-purple-300 shadow' : 'hover:bg-purple-300/[0.50]'" class="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700">
           Own Packages
         </button>
-        <button @click="selectFilter('open-source-contributions')" :class="currentFilter === 'open-source-contributions' ? 'bg-purple-300 shadow' : 'hover:bg-purple-300/[0.50]'" class="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700">
+        <button @click="selectFilter('open-source')" :class="currentFilter === 'open-source-contributions' ? 'bg-purple-300 shadow' : 'hover:bg-purple-300/[0.50]'" class="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700">
           Open Source Contributions
         </button>
       </div>

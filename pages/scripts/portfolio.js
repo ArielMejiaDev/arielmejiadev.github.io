@@ -55,7 +55,7 @@ export default [
     },
     {
         url: 'https://github.com/bobbyiliev/laravel-tips-and-tricks-ebook/pulls?q=is%3Amerged+is%3Apr+author%3AArielMejiaDev+',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'laravel_tips_and_tricks_ebook.png',
         image_cover: false,
         name: 'Add 6 chapters to the Ebook - Laravel Tips & Tricks',
@@ -64,7 +64,7 @@ export default [
     },
     {
         url: 'https://github.com/laravel/breeze/pull/82',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'laravel.png',
         image_cover: false,
         name: 'Fix CORS Policy Errors - Laravel Breeze',
@@ -73,7 +73,7 @@ export default [
     },
     {
         url: 'https://github.com/laravel/jetstream/pull/797',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'laravel.png',
         image_cover: false,
         name: 'Fix CORS Policy Errors - Laravel Jetstream',
@@ -82,7 +82,7 @@ export default [
     },
     {
         url: 'https://github.com/laravel/spark-next-docs/pull/34',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'laravel.png',
         image_cover: false,
         name: 'Spark for paddle Docs - Laravel Spark',
@@ -91,7 +91,7 @@ export default [
     },
     {
         url: 'https://github.com/spatie/laravel-package-tools/pull/103',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'spatie.png',
         image_cover: true,
         name: 'Add new Feature to Laravel Package Tools - Spatie',
@@ -100,7 +100,7 @@ export default [
     },
     {
         url: 'https://github.com/tailwindlabs/tailwindcss.com/pull/1677',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'tailwindcss.png',
         image_cover: false,
         name: 'Form Plugin Docs Page - TailwindLabs',
@@ -109,12 +109,21 @@ export default [
     },
     {
         url: 'https://github.com/thedevdojo/tails-components/pulls?q=is%3Amerged+is%3Apr+author%3AArielMejiaDev+',
-        category: 'open-source-contributions',
+        category: 'open-source',
         image: 'tails.png',
         image_cover: true,
         name: 'Add set of new components - Dev Dojo',
         technologies: 'Javascript, AlpineJS, TailwindCSS',
         excerpt: 'It adds a set of components (accordion, checkout form & Hero section) those are used in tails a tailwindcss website builder.'
+    },
+    {
+        url: 'https://adevait.com/laravel/security-in-laravel?fbclid=IwAR0mV-JAxYMHc83rNxKDyNqPQTLKEhiEb7dGrZRdkDORNTjFAgm4jokmaQY',
+        category: 'open-source',
+        image: 'adeva.png',
+        image_cover: true,
+        name: 'Contribute to Adeva\'s Technical Writers Program',
+        technologies: 'PHP, Laravel, MySQL',
+        excerpt: 'I create an article for adeva blog (developers platform) about Security in Laravel.'
     },
     {
         url: 'https://github.com/thedevdojo/tails-components/pulls?q=is%3Amerged+is%3Apr+author%3AArielMejiaDev+',
