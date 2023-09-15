@@ -9,11 +9,11 @@ import Talks from "./components/Talks";
   <section class="text-gray-700 body-font min-h-screen bg-cover bg-no-repeat relative overflow-hidden" style="background: url('./images/splatters/splatter.jpeg')">
 
     <div class="hidden md:block absolute top-0 -right-24 z-10">
-      <img src="./images/assets/2.png" alt="floating yellow triangle">
+      <img src="/images/assets/2.png" alt="floating yellow triangle">
     </div>
 
     <div class="hidden md:block absolute bottom-0 -left-0 z-10">
-      <img src="./images/assets/8.png" alt="floating purple liquid">
+      <img src="/images/assets/8.png" alt="floating purple liquid">
     </div>
 
     <LightNavbar />
