@@ -7,17 +7,21 @@ tags: VueJS
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/xp9u58l68av6tq04j8si.png
 ---
 
+# Easy Transition Slide Effect With VueJS
+
 ## Classes
 
-VueJS provide some classes by default to apply css styles on any of this classes, every class represents a phase to show the elements, think this classes as hooks for templates tags, this are:
+`VueJS` provide some default classes to apply `css` styles on any of these transition phases, every `class` represents a phase to show the elements:
 
-- v-enter-active
-- v-leave-active
-- v-enter
-- v-enter-to
-- v-leave-to
+- `v-enter-active`
+- `v-leave-active`
+- `v-enter`
+- `v-enter-to`
+- `v-leave-to`
 
-Here a snippet that you can use on to make this common responsive menus from the right or left:
+Here a little snippet that you can use on in order to make a slide from left or right 
+
+(Feel free to use it):
 
 ```vue
 <transition name="show">
@@ -29,7 +33,8 @@ Here a snippet that you can use on to make this common responsive menus from the
 ```
 
 
-Then on the styles tag of the component or a dedicated stylesheet, you can change the "v" prefix on vuejs transitions classes by the css class name:
+Then on the styles tag of the component or in a dedicated stylesheet, 
+optionally you can change the `v` prefix on `vuejs` transitions classes by the `css` class name:
 
 ```vue
 <style>
@@ -45,6 +50,6 @@ Then on the styles tag of the component or a dedicated stylesheet, you can chang
 </style>
 ```
 
-You can apply any css transition like fadeIn effects, this is a very helpful feature of VueJS.
+You can apply any `css` transition like `fadeIn` effects, this is a very helpful feature of `VueJS`
 
-Thanks for reading.
+Hope it was helpful and as always thanks for reading and happy coding!.

@@ -7,15 +7,17 @@ tags: Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/7wfui6zymk8r1uglcva2.png
 ---
 
-## Create a service provider for custom blade directives:
+# Laravel blade directive for money format
 
-```php
+## Create a new service provider:
+
+```shell
 php artisan make:provider BladeServiceProvider
 ```
 
 ## Register the new service provider:
 
-In "config/app.php" and add the new blade service provider in "providers" array:
+In `config/app.php` add the new blade service provider in `providers` array:
 
 ```php
 $providers = [
@@ -24,19 +26,21 @@ $providers = [
 ];
 ```
 
-## Add the directive in blade service provider:
+## Add the directive in the blade service provider:
 
-Go to "app/Providers/BladeServiceProvider" in the boot method:
+In `app/Providers/BladeServiceProvider` add this code inside the boot method:
 
 ```php
-    Blade::directive('money', function ($money) {
-        return "<?php echo number_format($money, 2); ?>";
-    });
+Blade::directive('money', function ($money) {
+    return "<?php echo number_format($money, 2); ?>";
+});
 ```
 
-It use the Blade facade, with "directive" method the first argument is the name of the created directive in this case "money", then the second argument is a callback
+It uses the `Blade facade` `directive` method, the first argument is the name of the directive 
+in this case `money`, the second argument is a `callback`
 
-The "$money" variable that represents the value pass to the directive, then it returns the value formatted using the "number_format" method.
+The `$money` variable is the value pass through the directive, 
+then it returns the value formatted using the php function `number_format`.
 
 ## Use the new money directive:
 

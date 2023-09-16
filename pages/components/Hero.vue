@@ -9,7 +9,7 @@
     <div class="container flex flex-col items-center px-5 py-16 mx-auto lg:px-20 lg:py-24 xl:flex-row">
 
       <div class="w-6/6 mb-10 lg:max-w-lg lg:w-full xl:w-1/2 xl:mb-0">
-        <img class="transform hover:rotate-2" alt="Me as a head in a jar" src="/images/avatar.png">
+        <img class="transform hover:rotate-12" alt="Me as a head in a jar" src="/images/avatar.png">
       </div>
 
       <div class="relative z-10 flex flex-col items-center text-center lg:flex-grow xl:w-1/2 py-10 lg:px-24 px-4 md:items-start md:text-left transform -rotate-0 sm:-rotate-2 bg-cover bg-no-repeat" style="background: url('/images/splatters/splatter.jpeg')">

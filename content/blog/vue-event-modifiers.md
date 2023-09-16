@@ -1,75 +1,77 @@
 ---
 id: 5
-title: Create a press "enter" Event on VueJS
+title: Vue Event Modifiers Example
 published: true
 description: Catch when user press enter with VueJS modifiers
 tags: VueJS
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/k98qpqsfyghh2k8kj2b1.png
 ---
 
+# Vue Event Modifiers Example
+
 ## Modifiers
 
-In VueJS we have "v-on" or "@" directives to get an event and display something:
+In VueJS we have `v-on` or `@` directives to get an event and display something:
 
-```js
-<input v-model="message">
-<button type="submit" @click="showMessage">click me</button>
-<script>
-...
-data: () => ({
-    message: '',
-}),
-methods: {
-    showMessage() {
-        return console.log(this.message)
+```html
+<script setup>
+    const message = ref('');
+    
+    const showMessage = function () {
+        console.log(message);
     }
-}
 </script>
+
+<template>
+    <input v-model="message">
+    <button type="submit" @click="showMessage">click me</button>
+</template>
 ```
 
-In this case the directive throws the method "showMessage", then it displays a console with the message.
+In this case the directive `@click` fired the method `showMessage`
 
+## How to fire a method with press-key event?
 
-But if I need to set an event to execute the "showMessage" method by press enter on input?
+Well, there is another modifier for this behavior, lets supposed that we need to tight a press-enter event and fire `showMessage`:
 
-Well there is another modifier for this behavior:
+```html
+<script setup>
+    const message = ref('');
 
-```js
-<input v-model="message" @keyup.enter="showMessage">
-<button type="submit" @click="showMessage">click me</button>
-<script>
-...
-data: () => ({
-    message: '',
-}),
-methods: {
-    showMessage() {
-        return console.log(this.message)
+    const showMessage = function () {
+        console.log(message);
     }
-}
 </script>
+
+<template>
+    <input v-model="message" @keyup.enter="showMessage">
+    <button type="submit" @click="showMessage">click me</button>
+</template>
 ```
 
-By simple adding a directive "keyup" and adding the modifier ".enter" then it would catch the event and execute the method "showMessage", well this would be ok in many scenarios a most easy way to handle this situation is with a regular form tag:
+When user press enter and key up event is fired, it would catch the event and execute the method `showMessage`, 
+well this would be ok in many scenarios like a search-box
 
-```js
-<form @submit.prevent="showMessage">
-    <input>
-    <button type="submit">click me</button>
-</form>
-<script>
-...
-data: () => ({
-    message: '',
-}),
-methods: {
-    showMessage() {
-        return console.log(this.message)
-    }
+## Handle events in regular forms
+
+For regular forms the event submit and it's modifiers like `prevent` are pretty useful an Eg:
+
+```html
+<script setup>
+    const message = ref('');
+
+    const showMessage = function () {
+    console.log(message);
 }
 </script>
+
+<template>
+    <form @submit.prevent="showMessage">
+        <input v-model="message">
+        <button type="submit">click me</button>
+    </form>
+</template>
 ```
 
-In this case we are still using a modifier but this time it is used in the form tag by adding "@submit" directive and the modifier ".prevent", this would make a prevent default on submit to avoid refreshing the page and then execute the "showMessage" method.
-
-In this post I show a little example of the VueJS modifiers but there are a lot more, just search in the docs, thanks for reading.
+I hope this little introduction to Vue event modifiers was useful, 
+as always thanks for reading & Happy Coding!.

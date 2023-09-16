@@ -7,51 +7,40 @@ tags: Laravel, Forge, Digital Ocean
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/lsqvvvptoj6y0tba76fq.png
 ---
 
-First to explain the idea of this post is to add subdomain for every users or any other model, this is a cool feature that some Saas apply.
+# Set dynamic subdomains in Laravel Forge
 
-## In development:
+## In Development
 
-routes/web.php file:
+In `routes/web.php` paste the route group:
 
 ```php
-Route::domain('{user}.' . config('app.base_url'))->group(function () {
+Route::domain('{user:slug}.' . config('app.base_url'))->group(function () {
 
-    Route::get('/', 'Users\\UserController')->name('user.homepage');
+    Route::get('/', UserController::class)->name('user.homepage');
 
 });
 ```
 
-Here I add an endpoint : "/1/myapp.test", the {user} means a wildcard for any model, but the id its not the most SEO friendly way to create the route maybe its better something like: "/john-doe/myapp.test".
+`base_url` is added by the `config()` helper, do not use the `env()` method here,
+this could cause errors if you fired the command `php artisan cache:clear`
 
-To accomplish this we need to set a slug column as model route key, Since Laravel 7 you can use dinamic route model binding like this: "{user:slug}", unfortunately this feature is not working for domain method.
+In this example you would need to add the column **slug** in your user migration.
 
-So in the user model "app/User.php" add the next method:
-
-```php
-/**
- * Get the route key for the model.
- *
- * @return string
-*/
-public function getRouteKeyName()
-{
-    return 'slug';
-}
-```
-
-In this example you would need to add the column slug in your user migration.
-
-Ok now we have our endpoint: "john-doe/myapp.test", the part of the route that adds the base url, in this case is adding by the "config()" helper, this is the recommended helper to add environment variables, do not use "env()" method here, this could cause errors if you fired the command "php artisan cache:clear".
-
-The config method get a param "app.base_url", this convention points to the "config/app.php" file, inside the file you can find a base_url key with the env('BASE_URL') as value:
+The part of the route that adds the `base_url` should be added in `config/app.php`
 
 ```php
-    'url' => env('APP_URL', 'http://localhost'),
-
-    'base_url' => env('BASE_URL', 'myapp.test'),
+'base_url' => env('BASE_URL', 'localhost'),
 ```
 
-In your controller (app/Http/Controllers/Users/UserController):
+Set a `base_url` in the application `.env` file:
+
+```dotenv
+BASE_URL=myapp.test
+```
+
+## Create a controller
+
+In `app/Http/Controllers/Users/UserController`:
 
 ```php
 public function __invoke(User $user)
@@ -60,67 +49,66 @@ public function __invoke(User $user)
 }
 ```
 
-This controller is an invokable controller this means that when the class is invoke, if the class has an invoke method this will be fired, In this case we take advantage of route model binding to return all the user model, you can test this feature by changing the endpoint:
+Now it can be tested in the browser with something like: `/john-doe/myapp.test`
 
-"john-doe/myapp.test" to "jane-doe/myapp.test"
+It returns the corresponding user for that slug, if you do not have any user with the **slug** it will throw a 404 error.
 
-This will work if you have users with this slugs, if you does not have any user with this slugs it will throw a 404 error, this is ok because it fails because there is a not model found exception behind.
+You can add users with tinker and test it.
 
-you can add users with tinker and test again the endpoints.
-
-
-So now that in development all works we need to make a deploy on forge, in this example I will use digital ocean as the server provider.
+If all works it is time to make a deployment on **forge**, in this example I will use **digital ocean** as the server provider.
 
 ## 1 Create your project on forge:
 
-Just write your domain and be sure to check "allow wildcards".
+Just write your domain and be sure to check **allow wildcards**.
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/vfd8px6xgejcmv4qb8y5.png)
 
 ## 2 Add your repo:
 
-The full repo name comes from the github repo url (look the pointer):
+The full repo name comes from the `github` repo url (highlighted):
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/8zgpvnopkq1etcbxc2gc.png)
 
-This convention from githubusername/repo goes in repository field in forge:
+This convention from `githubusername/repo` goes in the `repository` field in **forge**:
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/25wqwebeo2kbdxqimz5g.png)
 
 
 ## 3 Set your environment:
 
-As in development we use config() to get a value from "config/app.php" and this value comes from "env()" we need to add the proper value in the env file on forge:
+It needs to add the proper `APP_URL` value in the `.env` file on forge:
 
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/tm62xkk96b4s9w4xinmk.png)
 
 
-Here I add the "BASE_URL" and make the "APP_URL" dinamically by using "BASE_URL" as part of its value as interpolated string.
+Here I add the `BASE_URL` and make the `APP_URL` dynamically, but both can also be written.
 
 ## 4 Set the domain in Digital Ocean:
 
-You need a add some records:
-- by default an "A" record for the base url "@"
-- a "CNAME" record for "www"
-- the sauce tip the register to set multidomain an "A" record "*"
+You need to add some records:
+- by default an `A` record for the base url `@`
+- a `CNAME` record for `www`
+- and a multi-domain `A` record with `*.` as a prefix
 
-This is how your config would be seen:
+This is how your config should look like:
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/dpmxwdsycuk19ry2driy.png)
 
 ## 5 Create an API TOKEN
 
-On the sidebar, on API generate a new token, copy the token and save it for later.
+On the sidebar, go to **API** section and generate a **new token**, copy the token and save it for later
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/vas5pd8xatp0ke3zo9bc.png)
 
-## 6 Now we need to configure the SSL certificate:
+## 6 Configure the SSL certificate:
 
-This step is particularly complicated because sometimes it takes a couple of hours to properly propagate the changes from Digital Ocean, this apply to any other provider not just Digital Ocean.
+This step is particularly complicated because sometimes it takes a couple of hours to properly propagate the changes 
+from **Digital Ocean**, this applies to any other provider.
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/iaks37yv9kg35m04rbqu.png)
 
-Many times it works immediately.
+Sometimes it works immediately, and sometimes takes a while and needs more time to get propagation, 
+between 2 or 6 hours, but it can take more.
 
-If this fail, its probably because the Digital ocean setup needs more time to get propagation, between 2 or 6 hours but it can take more time.
+Hope it is helpful and as always happy coding!

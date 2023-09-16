@@ -3,6 +3,8 @@ id: 28
 title: Fix NuxtJS Laravel CORS Issue
 ---
 
+# Fix NuxtJS Laravel CORS Issue
+
 ## Access apps from the browser
 
 For a local environment on the backend side using Herd/Valet Laravel provides two ways to visit your application in the browser:

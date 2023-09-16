@@ -24,7 +24,7 @@ import LightNavbar from "./LightNavbar";
 
     <div class="container mx-auto">
 
-      <div class="flex justify-center my-4 lg:mt-20 lg:mb-10 mx-4">
+      <div v-if="$slots.title" class="flex justify-center my-4 lg:mt-20 lg:mb-10 mx-4">
         <h2 style="right: -1rem; bottom: -1.5rem; text-shadow: rgb(138,124,174) 3px 3px; line-height: 72px;transform: translateX(0px) translateY(0px) rotate(-2deg) skewX(0deg) skewY(0deg) scaleX(1) scaleY(1);" class="w-full sm:w-auto inline-block py-1 px-10 my-8 mx-0 text-4xl md:text-5xl lg:text-7xl leading-none text-center uppercase font-extrabold tracking-tighter text-center text-gray-50 bg-purple-700 bg-opacity-50 border-0 border-gray-900 border-solid box-border">
           <slot name="title" />
         </h2>

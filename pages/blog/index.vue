@@ -12,12 +12,12 @@ const { data } = await useAsyncData('blog', () => queryContent('/blog').sort({ i
     <template v-slot:title>Blog</template>
 
 
-    <div class="bg-white py-10">
+    <div class="bg-white">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-4xl">
-          <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+          <div class="space-y-20 lg:mt-20 lg:space-y-20">
 
-            <div v-if="data" class="space-y-8">
+            <div v-if="data" class="space-y-16">
 
               <div v-for="(post, index) in data" :key="index">
                 <BlogPost :post="post" />

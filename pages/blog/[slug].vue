@@ -10,10 +10,10 @@ const { data } = await useAsyncData(`post-${route.params.slug}`, () => queryCont
 
   <LightInkedLayout>
 
-    <div class="bg-white py-10 min-h-screen">
+    <div class="bg-white min-h-screen">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-4xl">
-          <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20 prose prose-slate lg:prose-xl">
+          <div class="space-y-20 lg:mt-20 lg:space-y-20 prose lg:prose-xl prose-h1:text-center prose-a:no-underline prose-a:text-purple-700 hover:prose-a:text-purple-600 hover:prose-a:underline prose-code:bg-gray-200 prose-code:rounded prose-code:after:hidden prose-code:before:hidden prose-code:mx-1 prose-pre:shadow-lg prose-img:rounded prose-img:shadow-lg">
             <ContentRenderer :value="data" />
           </div>
         </div>
