@@ -67,4 +67,4 @@ Usage in **blade** views:
 
 Another place to apply this feature is in `JsonResource` classes
 
-Hope it is helpful and as always thanks for reading!
+Thanks for reading!

@@ -139,3 +139,5 @@ maliciously try to type a route that is not allowed.
 
 The same logic to redirect users by roles should be added 
 to protect routes using `RedirectIfAuthenticated` `middleware`.
+
+Thanks for reading!

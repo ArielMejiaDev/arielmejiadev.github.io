@@ -73,5 +73,4 @@ For regular forms the event submit and it's modifiers like `prevent` are pretty 
 </template>
 ```
 
-I hope this little introduction to Vue event modifiers was useful, 
-as always thanks for reading & Happy Coding!.
+Thanks for reading!

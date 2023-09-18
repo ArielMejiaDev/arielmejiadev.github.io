@@ -111,4 +111,4 @@ from **Digital Ocean**, this applies to any other provider.
 Sometimes it works immediately, and sometimes takes a while and needs more time to get propagation, 
 between 2 or 6 hours, but it can take more.
 
-Hope it is helpful and as always happy coding!
+Thanks for reading!

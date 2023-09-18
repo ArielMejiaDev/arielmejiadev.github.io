@@ -52,4 +52,4 @@ optionally you can change the `v` prefix on `vuejs` transitions classes by the `
 
 You can apply any `css` transition like `fadeIn` effects, this is a very helpful feature of `VueJS`
 
-Hope it was helpful and as always thanks for reading and happy coding!.
+Thanks for reading!

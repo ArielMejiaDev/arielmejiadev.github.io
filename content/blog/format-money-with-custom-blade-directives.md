@@ -56,5 +56,5 @@ Notes:
 I think that this directives are a great place to make some tricky formatting, but if you want to add more logic, maybe a best way to add this is with a model method or an action class.
 
 
-Thanks for reading.
+Thanks for reading!
 

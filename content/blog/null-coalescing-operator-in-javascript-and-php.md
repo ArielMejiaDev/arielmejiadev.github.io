@@ -7,11 +7,15 @@ tags: Javascript, PHP, Vue, Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/soado5pa6t0t7adrfhd3.png
 ---
 
-Working with components sometimes we need a default behavior or appearance but maybe in a few situations we need to override this default behavior, another common scenario is that we could not know if some variable is getting a value or it is just null.
+# Null coalescing operator in Javascript & PHP
 
-## Here some examples:
+Sometimes there is no way to know if a variable has a value, or it is just null, 
+to avoid `getting x property from null` exceptions.
 
-- In a Laravel component:
+Javascript & PHP have a `null coalescing operator`, through these examples 
+you are going to be able to see how this operator gives you a default value if a variable is `null`.
+
+## PHP Example using Laravel Blade Component:
 
 ```php
 // welcome.blade.php
@@ -25,13 +29,14 @@ Working with components sometimes we need a default behavior or appearance but m
 </div>
 ```
 
-Well this would work ok, but what if I need different styles? I need to create multiple componentes with different alert colors, well certainly you can but maybe it violates the DRY principle...
+Well this would work, but what if I need different styles? I need to create multiple components with different alert colors, 
+well certainly you can, but maybe it violates the DRY principle...
 
-So what can I do?
+**So what can I do?**
 
-You can use the merge attributes to add more styles but what if you want to change a nested elements like in this case the "p" tag or use a "fallback style" but you want to override it:
+I want a default style, but I want to override this style in some cases when it's needed.
 
-There you can use this null coalescing operator:
+There you can use this `null coalescing operator` in php the syntax is: `??`
 
 ```php
 // welcome.blade.php
@@ -45,21 +50,16 @@ There you can use this null coalescing operator:
 </div>
 ```
 
-Now the component will work with 'bg-indigo-200' class as default if the component does not pass the "classlist" property, but if you pass the prop you can override the default styles of the alert component.
+Now the component will have `bg-indigo-200` class as default if the component does not have the 
+`classlist` property, but if it has the prop it would override the default styles of the alert component.
 
 
 ## The same for Javascript:
 
-The null coalescing operator is "||" so you can create components with some default style and it would be override with a prop just like the example above:
+The `null coalescing operator` is `||` so you can create components with some default style, 
+and it would be overridden with a prop just like the example above:
 
-By this example I will show a Vue component:
-
-```vue
-// App.vue
-<navbar />
-```
-
-Navbar.vue
+By this example I will show a `Vue` component:
 
 ```vue
 <template>
@@ -78,16 +78,8 @@ export default {
 </script>
 ```
 
-Well in this case the scenario its pretty similar, I want a default style but I want to override this style in some cases when its needed, here is another good opportunity of null coalescing operator to shine:
-
-## Refactoring...
-
-```vue
-// App.vue
-<navbar :class-list="'bg-blue-600'" />
-```
-
-Navbar.vue
+Well in this case the scenario It's pretty similar, I want a default style, but I want to override this style 
+in some cases when it's needed, here is another good opportunity of `null coalescing operator` to shine:
 
 ```vue
 <template>
@@ -106,7 +98,9 @@ export default {
 </script>
 ```
 
-Well there are some advantage of this approach:
+**Take in mind**
+
+Advantage of this approach:
 
 - Promote DRY principle.
 - You can pass any prop even to nested elements in you component, but you can still use just one component.
