@@ -7,10 +7,9 @@ tags: Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/0vwwganile7ghvb54i2n.png
 ---
 
-There are case when we need to fired an event, a job or maybe notify something when user is logged in or the account is verfied, there are two ways of handle this actions.
-
 # Fired an event when user is logged in:
----
+
+There are case when we need to fired an event, a job or maybe notify something when user is logged in or the account is verfied, there are two ways of handle this actions.
 
 ## On LoginController
 
