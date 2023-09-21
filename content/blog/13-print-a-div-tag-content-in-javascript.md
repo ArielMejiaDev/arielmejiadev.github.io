@@ -1,13 +1,15 @@
 ---
-id: 14
-title: Print a div tag content with Javascript.
+id: 13
+title: Print a div tag content with Javascript
 published: true
 description: Here I will add a script to print just a portion of an html page.
 tags: Javascript, Tailwind
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/9zg2pc4gixlazm54nvj3.png
 ---
 
-Here a simple example of an html template created with TailwindCSS:
+# Print a div tag content with Javascript
+
+Here a simple example of a `HTML` template created with `TailwindCSS` to show an `HTML` Certificate
 
 ```html
 <!DOCTYPE html>
@@ -53,13 +55,20 @@ Here a simple example of an html template created with TailwindCSS:
 ```
 
 
-This template adds a beautiful html certificate, maybe in a real layout it has a header, or footer, etc, what if I need to print just the certificate?, Well we are going to a add a button to print the certificate:
+Maybe in a real layout it would have a `header`, or `footer`, etc... 
+
+
+### How to print just the certificate? 
+
+Well we are going to an add a `button` to **print** the certificate
 
 ```html
-<button onclick="printCertificate()" class="fixed z-10 bg-blue-900 text-white bottom-0 right-0 m-10 py-2 px-4 rounded-full shadow-xl hover:text-yellow-600 focus:outline-none">Print</button>
+<button onclick="printCertificate()" class="fixed z-10 bg-blue-900 text-white bottom-0 right-0 m-10 py-2 px-4 rounded-full shadow-xl hover:text-yellow-600 focus:outline-none">
+    Print
+</button>
 ``` 
 
-The print button has an event, so now we need to add a Javascript function:
+The print `button` has an `event`, so now we need to add a `Javascript` function
 
 
 ```html
@@ -74,7 +83,14 @@ The print button has an event, so now we need to add a Javascript function:
     </script>
 ```
 
+In order to test it, click the button and wallah trick done!
+
 ## What does the script?
 
-It gets the html element with the id "certificate", then it get the original html layout content, then it creates a new one and add the div content to this "new" html, then it prints the new html layout and finally the html becomes the original html layout.
+- It gets the `html` element with the id `certificate`
+- creates a new html element
+- add the content from the element with id `certificate`  inside this new element
+- prints the new html element 
+- finally the html becomes the original html layout
 
+Thanks for reading!

@@ -1,5 +1,5 @@
 ---
-id: 24
+id: 28
 title: Load Laravel ENV Variables Into Javascript With Vite
 ---
 

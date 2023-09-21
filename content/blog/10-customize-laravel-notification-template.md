@@ -1,33 +1,37 @@
 ---
 id: 10
-title: Customize the Laravel notifications template.
+title: Customize the Laravel notifications template
 published: true
 description: How to customize the layout and CSS of Laravel notifications template.
 tags: Laravel, Mails, Notifications
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/j4fs0xukx32izpi6aafd.png
 ---
 
-This is a little tip but very helpful to customize the notifications layout the Laravel docs explain this command:
+# Customize the Laravel notifications template
+
+In order to customize `Laravel` notifications layout docs explain this command:
 
 ```php
 php artisan vendor:publish --tag=laravel-notifications
 ```
 
-Now in "resources/views/vendor" you can edit the markdown template layout.
+In `resources/views/vendor` you can edit the markdown template layout.
 
 
-But what if I need to customize the colors and other CSS of the template, well Laravel provides a command to publish this assets:
+## Customize Colors
+ 
+`Laravel` provides a command to publish these assets:
 
 ```php
 php artisan vendor:publish --tag=laravel-mail
 ```
 
-Now in "resources/views/vendor/mail/html/themes/default.css"
+In `resources/views/vendor/mail/html/themes/default.css`
 
 
-Here we can customize the CSS to brand the notifications.
+We are able to customize the notifications `CSS` to matches your app brand and colors.
 
-## Little tips:
+## Little tip
 
 - To customize the header link:
 
@@ -40,7 +44,7 @@ Here we can customize the CSS to brand the notifications.
 }
 ```
 
-- To customize the button "primary":
+- To customize the `primary` button
 
 ```css
 .button-primary {
@@ -52,6 +56,6 @@ Here we can customize the CSS to brand the notifications.
 }
 ```
 
-Of course you can customize the error action and success action, just below.
+Of course, you are able to customize the error action and success action just below
 
 Thanks for reading!

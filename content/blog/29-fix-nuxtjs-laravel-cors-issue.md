@@ -1,5 +1,5 @@
 ---
-id: 28
+id: 29
 title: Fix NuxtJS Laravel CORS Issue
 ---
 

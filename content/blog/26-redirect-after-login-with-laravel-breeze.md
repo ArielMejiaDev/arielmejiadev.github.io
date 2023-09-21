@@ -1,5 +1,5 @@
 ---
-id: 29
+id: 26
 title: Redirect After Login with Laravel Breeze
 description: Redirect users by roles after login with Laravel Breeze.
 tags: Laravel

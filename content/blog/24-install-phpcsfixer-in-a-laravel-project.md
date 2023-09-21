@@ -1,5 +1,5 @@
 ---
-id: 26
+id: 24
 title: Install PhpCsFixer in a Laravel Project
 ---
 

@@ -1,13 +1,18 @@
 ---
-id: 16
+id: 15
 title: Basic Github Actions for Laravel
 ---
 
-The publish github actions works properly for default Laravel apps, just choose what makes sense for your own project.
+# Basic Github Actions for Laravel
 
-This action files require a `.env.ci` that is just a copy from `.env.example`, feel free to adjust this file for your project requirements.
+This action files require a `.env.ci` file that is just a copy from `.env.example`, 
+feel free to adjust this files for your project requirements
 
-### Just run PHPUnit test:
+**Select the action that fits better for your project**
+- [Run PHP UNIT Tests](#github-action-to-run-phpunit-test)
+- [Run PHPUnit tests & NPM workflow](#github-action-to-run-phpunit-tests-npm-workflow)
+
+### Github Action to run PHPUnit test
 
 ```yml
 name: CI
@@ -128,3 +133,5 @@ jobs:
     - name: Compile assets
       run: npm run build
 ```
+
+Thanks for reading!

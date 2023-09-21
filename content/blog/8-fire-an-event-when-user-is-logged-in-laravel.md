@@ -2,117 +2,154 @@
 id: 8
 title: Fire an action when user is logged in or verified with Laravel
 published: true
-description: How to apply events, jobs, notifications or any other Laravel feature when user is logged in or the account is verfied
+description: How to apply events, jobs, notifications or any other Laravel feature when user is logged in or the account is verified
 tags: Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/0vwwganile7ghvb54i2n.png
 ---
 
-# Fired an event when user is logged in:
+# Fired an event when user is logged-in
 
-There are case when we need to fired an event, a job or maybe notify something when user is logged in or the account is verfied, there are two ways of handle this actions.
+There are cases when is required to fire an `event`, a `job` or maybe `notify` 
+something when `user` is `logged in` or the account is `verified`, there are two ways of handle this actions
 
-## On LoginController
+## In Auth Controllers
 
-Lets suppose we want to send a notification when the user is logged in, in this case the "LoginController" does provide a "redirectTo" method this is the only method available when the user is already validated and logged in, so here we need to fired an event or any other logic that you would need:
-
-```
-app/Http/Controllers/Auth/LoginController.php
-```
+Let's suppose we want to send a `notification` eg: `AccountStatusNotification` when the user is logged in, 
+in this case the `AuthenticatedSessionController` has a `store` method were we can add our custom logic
 
 ```php
-    public function redirectTo()
+    // App\Http\Controllers\Auth\AuthenticatedSessionController
+
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function store(LoginRequest $request): RedirectResponse
     {
-        auth()->user()->notify(new StatusNotification());
+        $request->authenticate();
+
+        $request->session()->regenerate();
+        
+        // Here we can add our custom code
+        auth()->user()->notify(new AccountStatusNotification());
+
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 ```
 
-There is another way to handle this event:
+## There is another way to handle this using events
 
-## Using the Login event:
+In `EventServiceProvider` you can use any of these events:
 
-```
-app/Providers/EventServiceProvider:
-```
+- `Login`
+- `Registered`
+- `Verified`
+- `Logout`
+
+### Where is Fired Login Event
+
+Here the code where the login `event` is executed...
+
+### Use Login Event
+
+In this example you need to create your listener `SendEmailStatusNotificationListener`
 
 ```php
+    // app/Providers/EventServiceProvider
+
     protected $listen = [
         Login::class => [
-            SendEmailStatusNotification::class,
+            SendEmailStatusNotificationListener::class,
         ],
     ];
 ```
 
-In this example you need to create your listener "SendEmailStatusNotification" and there on "handle" method you can get the auth user and notify.
-
-In you listeners you can inject the Login event to get the event user for example, this is another way of fire the notification:
+In you `listeners` you can inject the `Login` event to get the event's `user` and fire the `notify` method
 
 ```php
 public function handle(Login $event)
 {
-   $event->user->notify(new StatusNotification);
-   // or use the typicall auth facade
-   auth()->user()->notify(new StatusNotification);
+   $event->user->notify(new AccountStatusNotification);
+   
+   // or use the typical auth facade
+   auth()->user()->notify(new AccountStatusNotification);
 }
 ```
 
-# Fired an event on verifiedAccount:
----
+### Where Is Fired The Verified Event?
 
-You can use the "verified" method on VerificationController:
-
-```
-app/Http/Controllers/Auth/VerificationController.php
-```
+You can check the `__invoke` method on `app/Http/Controllers/Auth/VerifyEmailController.php`
 
 ```php
-    public function verified(Request $request)
+    /**
+     * Mark the authenticated user's email address as verified.
+     */
+    public function __invoke(EmailVerificationRequest $request): RedirectResponse
     {
-        $request->user()->notify(new StatusNotification());
+        // ...
+
+        if ($request->user()->markEmailAsVerified()) {
+            // Here Laravel already fire the verified event
+            event(new Verified($request->user()));
+        }
+
+        // ...
     }
 ```
 
-## Using the Verified event:
+## Using Verified Event
 
-The same way you can handle this approach as an event in EventServiceProvider:
+The same way you can handle this approach as an `event` in `EventServiceProvider`
 
 ```php
-   use use Illuminate\Auth\Events\Verified;
-   ....
+   use Illuminate\Auth\Events\Verified;
 
     protected $listen = [
         Verified::class => [
-            SendEmailStatusNotification::class,
+            SendEmailStatusNotificationListener::class,
         ],
     ];
 ```
 
-Lastly, remember if you need to fired an event when the user is getting register,
 
+### Where Is Fired Registered Event?
 
-# Fired an event when user is registered
----
-
-Literally there is a method named "registered":
-
-```
-app/Http/Controllers/Auth/RegisterController.php
-```
+There is a `store` method in `app/Http/Controllers/Auth/RegisteredUserController.php`
 
 ```php
-    public function registered(Request $request, $user)
+     /**
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function store(Request $request): RedirectResponse
     {
-        $user->notify(new NewsletterNotification());
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // Here Laravel Fires a registered event
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect(RouteServiceProvider::HOME);
     }
 ```
 
-## Using the Registered event:
+## Using the Registered event
 
-You can use the same Event approach:
-
+You can use it with the same `EventServiceProvider` approach
 
 ```php
    use Illuminate\Auth\Events\Registered;
-   ....
 
     protected $listen = [
         Registered::class => [
@@ -121,11 +158,66 @@ You can use the same Event approach:
     ];
 ```
 
+## Where Is Fired Logout Event?
 
-Personally I feel more elegant way to handle the events by using the events on "EventService" provider and it looks more like a good standard, but here are both ways to handle this
+It is fire by `destroy` method in `app\Http\Controllers\Auth\AuthenticatedSessionController`
 
-There are more events that work like this like: "Logout" event and "logout" method on "LoginController" but this examples show the most common cases.
+```php
+    /**
+     * Destroy an authenticated session.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        // Auth guard returns Illuminate\Auth\SessionGuard
+        Auth::guard('web')->logout();
 
-Thanks for reading.
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+```
+
+It uses `Auth::guard` `facade` to return an `Illuminate\Auth\SessionGuard` instance that has a `logout` method that fires the `Logout` event
+
+```php
+    /**
+     * Log the user out of the application.
+     *
+     * @return void
+     */
+    public function logout()
+    {
+        // ... 
+        
+        // If we have an event dispatcher instance, we can fire off the logout event
+        // so any further processing can be done. This allows the developer to be
+        // listening for anytime a user signs out of this application manually.
+        if (isset($this->events)) {
+            $this->events->dispatch(new Logout($this->name, $user));
+        }
+        
+        // ...
+    }
+```
+
+So you can use the event to fire a `listener` when user signs out using the `EventServiceProvider` too
+
+```php
+   use Illuminate\Auth\Events\Registered;
+   //...
+
+    protected $listen = [
+        Logout::class => [
+            SendTaskOfTheDayNotificationListener::class,
+        ],
+    ];
+```
+
+Personally, I feel it is a more elegant way to handle auth events on `EventServiceProvider`, 
+than adding the code directly into `App\Http\Controllers\Auth` controllers, it looks like a good standard
+
+Thanks for reading!
 
 
