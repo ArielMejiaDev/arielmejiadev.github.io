@@ -3,21 +3,25 @@ id: 24
 title: Install PhpCsFixer in a Laravel Project
 ---
 
-Code sniffer is a package to apply syntax rules to our php code to follow PSR-standards, here a guide to install and use it:
+# Install PhpCsFixer in Laravel
 
-Install php cs fixer
+Code sniffer Fixer apply syntax rules to our `PHP` code to follow `PSR-standards`
+
+## Install PHP-CS-FIXER
 
 ```shell
 composer require friendsofphp/php-cs-fixer
 ```
 
-Create a config file:
+**Create a config file**
 
 ```shell
 touch php-cs-fixer.php
 ```
 
-You can add your configuration rules, here a good example to use it in a laravel projects:
+You can add your configuration rules
+
+Here is a good example to use it in a laravel projects checking just a few rules
 
 ```php
 <?php
@@ -42,7 +46,7 @@ return (new PhpCsFixer\Config())->setRules([
         ->setFinder($finder);
 ```
 
-Another more advance example could be:
+Another more advance example checking much more rules
 
 ```php
 <?php
@@ -89,10 +93,11 @@ return (new PhpCsFixer\Config())
     ->setFinder($finder);
 ```
 
-Feel free to use whatever configuration that makes sense for your project.
+Feel free to use whatever configuration that makes sense for your project
 
-Execute the code sniffer fixer
-On terminal execute this command:
+## Execute the code sniffer fixer
+
+On terminal run
 
 ```shell
 vendor/bin/php-cs-fixer fix
@@ -104,10 +109,13 @@ Or using the configuration
 vendor/bin/php-cs-fixer fix --config=php-cs-fixer.php
 ```
 
-You can add more flags to customize the behavior of the fixer, here another example:
+You can add more flags to customize the behavior of the fixer, like `allow-risky`, `dry-run` `verbose`
 
 ```shell
 php ./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config php-cs-fixer.php --allow-risky=yes --dry-run --verbose
 ```
 
-You can install husky with npm to fire this commands on husky hooks and execute any of this commands automatically, this is all thanks for reading.
+You can install `husky` with `npm` to fire this commands 
+on `husky` `hooks` and execute any of these commands automatically, following this post [Install Husky Guide](/blog/22-run-tests-locally-before-pushing-code-in-laravel) 
+
+Thanks for reading!

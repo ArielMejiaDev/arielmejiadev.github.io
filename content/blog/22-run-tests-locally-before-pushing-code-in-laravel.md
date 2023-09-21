@@ -3,17 +3,19 @@ id: 22
 title: Run Tests Locally Before Pushing Code In Laravel
 ---
 
+# Run Tests Locally Before Pushing Code In Laravel
+
 ## Install Husky
 
-Husky is an excellent tool to automate hooks, in this post we are running phpunit tests before pushing code.
+`Husky` is an excellent tool to automate `hooks`, in this post we are running `phpunit` tests before pushing code
 
-```
+```shell
 npm install husky@4 --save-dev
 ```
 
 ## Run all laravel tests after pushing code:
 
-On `package.json` file add this code:
+On `package.json` file add this code
 
 ```json
     "husky": {
@@ -25,11 +27,12 @@ On `package.json` file add this code:
 
 ## Go further
 
-Husky also allows to add hooks before adding a commit.
+`Husky` also allows to add `hooks` before adding a `commit`
 
 ## Add pre commit hooks
 
-If you want to learn how to install and configure `PHPInsights` or any other package for static analyze the links for posts are at the end of the post.
+If you want to learn how to install and configure `PHPInsights` or 
+any other package for `static analyze` the links are at the end of the post
 
 You can run any package or custom command, in this case I will add a artisan command from `PHPInsights`.
 
@@ -45,9 +48,9 @@ You can run any package or custom command, in this case I will add a artisan com
 
 ## Adding more than one `pre-commit` hook
 
-You can configure Husky to add more than one command on any hook by adding "&&" between every command.
+You can configure `Husky` to add more than one command on any `hook` by adding `&&` between every command
 
-In this case it would be configure to run `PHPInsights` and `PHPCSFixer`, but you can run any package or custom command:
+In this case it would be configure to run `PHPInsights` and `PHPCSFixer`, but you can run any package or custom command
 
 ```json
     "husky": {
@@ -58,4 +61,4 @@ In this case it would be configure to run `PHPInsights` and `PHPCSFixer`, but yo
     },
 ```
 
-That is all for this post, thanks for reading.
+Thanks for reading!

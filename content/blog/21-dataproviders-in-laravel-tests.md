@@ -1,40 +1,29 @@
 ---
 id: 21
-title: Dataproviders In Laravel Tests
+title: Data-providers In Laravel Tests
 ---
 
-Here an example with login.
+# Data-Providers In Laravel Tests
 
-A login should test:
+`Data-providers` execute the same test multiple times with different data
+
+For the sake of simplicity this post shows an example for a `login form test` using `Laravel/Breeze`
+
+**Validation TestCases**
 - email and password are not empty
 - email has a valid format
 - password has at least 8 characters length
 
-All this tests are expecting a validation message for any of this cases, basically it is the same process with different data, this is a great scenario for PHPUnit Dataproviders.
+These `tests` are expecting a validation message for all the cases, a great scenario for `PHPUnit` `Data-providers`.
 
-## Install some authentication scaffold (optionally)
+## Make a tests to validate the login request
 
-```
-composer require laravel/breeze --dev
-```
 
-## Install breeze
-
-```
-php artisan breeze:install
-npm install
-npm run dev
-php artisan migrate
+```shell
+php artisan make:test LoginTest
 ```
 
-## Make a tests for login to validates the request.
-
-
-```
-php artisan make:test LoginValidationTest
-```
-
-Here the basic test:
+Here the basic test
 
 ```php
 /**
@@ -44,7 +33,9 @@ Here the basic test:
 public function it_tests_a_login_form_validation($invalidData, $invalidFields): void
 {
     $response = $this->post('/login', $invalidData);
+    
     $response->assertSessionHasErrors($invalidFields);
+    
     $this->assertDatabaseCount('users', 0);
 }
 
@@ -60,7 +51,7 @@ public function invalidUsersData(): array
             ['email']
         ],
         [
-            ['email' => 'somethingNotValid', 'password' => 123],
+            ['email' => 'john@doe.com', 'password' => 123],
             ['password']
         ],
     ];
@@ -69,31 +60,46 @@ public function invalidUsersData(): array
 
 ## Explanation
 
-First the annotation for data provider is necessary, then we see that the dataProvider function returns a multidimensional array, to explain this behavior:
+`Data-provider` `doc-block` targets to `invalidDataUsers` function that returns a multidimensional array
 
-PHPUnit dataProviders returns a value on every iteration, the first iteration of the data provider it would set:
-
-```php
-$invalidData = ['email' => '', 'password' => ''];
-$invalidFields = ['email', 'password']
-```
-
-So every subarray would return values, in this case two values to make tests on every iteration.
-
-So the first iteration would be equals to:
+`PHPUnit` `data-providers` returns a value on every iteration, 
+the iterations of the data provider would run **in memory** equals to
 
 ```php
 public function it_tests_a_login_form_validation(): void
 {
+    // First Iteration empty values
     $response = $this->post('/login', [
         'email' => '', 
         'password' => ''
     ]);
-
+    
+    // First Iteration expected error keys for both fields (empty)
     $response->assertSessionHasErrors(['email', 'password']);
+    
+    // Second Iteration bad email format
+    $response = $this->post('/login', [
+        'email' => 'somethingNotValid', 
+        'password' => 'password'
+    ]);
+
+    // Second Iteration expected email error key
+    $response->assertSessionHasErrors(['email']);
+    
+    // Third Iteration bad password length
+    $response = $this->post('/login', [
+        'email' => 'john@doe.com', 
+        'password' => 123
+    ]);
+
+    // Third Iteration expected password key
+    $response->assertSessionHasErrors(['password']);
+    
     $this->assertDatabaseCount('users', 0);
 }
 ```
 
-So you can create any amount of cases and the method would be executed the amount of times as subarrays are present on the dataProvider function returns.
+So you can create any amount of cases and the method would be executed the amount of times 
+as array items are present on the `data-provider` function
 
+Thanks for reading!

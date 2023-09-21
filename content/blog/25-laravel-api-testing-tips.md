@@ -3,23 +3,44 @@ id: 25
 title: Laravel API Testing Tips
 ---
 
-Hi here a few tips to work on testing with Laravel, this post will be always on updating to grow.
+# Laravel API Testing Tips
 
-## Get validation errors as JSON for an API
-Use the testCase method `json()`
+Here a few tips to test an API with **Laravel**
+
+## Tip # 1: Get validation errors as JSON format
+For **Laravel** TestCase 
+
+Instead of regular request methods like this
 
 ```php
-$this->json('post', '/api/any', ['key' => 'value']);
+$this->get('/api/any');
+$this->post('/api/any', ['key' => 'value']);
+$this->put('/api/any/{id}', ['key' => 'value']);
 ```
 
-If you are making an ajax or fetch request the errors will be displayed as json by default, 
-to tests this validation errors just use the `json()` method.
+You can use `json()` method
 
-## Create a Request class
+```php
+$this->json('get', '/api/any');
+$this->json('post', '/api/any', ['key' => 'value']);
+$this->json('put', '/api/any/{id}', ['key' => 'value']);
+```
 
-This is particularly helpful if you are using dependency injection.
+Or even better replace it with
 
-To create a request class and add params
+```php 
+$this->getJson('/api/any');
+$this->postJson('/api/any', ['key' => 'value']);
+$this->putJson('/api/any/{id}', ['key' => 'value']);
+```
+`json()` and `getJson()`, `postJson()` etc ... adds `JSON` `headers` 
+to instruct **Laravel** to return errors in `JSON` format
+
+## Tip # 2: Create a Request/FormRequest classes on runtime
+
+This is particularly helpful if you are using `dependency injection`
+
+To create a `request` class and add `inputs/params`
 
 ```php
 $request = new \Illuminate\Http\Request();
@@ -40,60 +61,27 @@ $request->replace([
 ]);
 ```
 
-## Debug a JSON response content easy.
+## Tip # 3: Debug a JSON response content easy
 
-You can chain `json()` method with `getContent()` method that allow you to view the response content,
-typically a convention is to hold the response in a variable to make some assertions, 
-in this case as you wish to view response in `JSON` format you can use `json_encode()` 
-native php function to get a better readability:
+Instead of `die & dump` a `json decoded` response manually
 
 ```php
-$response = $this->json('get', '/api/anyendpoint');
-dd(json_decode($response->getContent()));
+$response = $this->getJson('/api/anyendpoint');
+
+dd(
+    json_decode($response->getContent())
+);
 ```
 
-It works for other methods to make a request like `get()`, `post()`, `put()`, `delete()`, 
-but it has more sense in `json()` method because it returns a JSON.
-
-
-Another way to inspect the response is with the method `dump`:
+There are dedicated method in order to get the response
 
 ```php
 $response->dump();
+
+$response->dd();
 ```
 
-## Testing redirects
-
-Typically, in your controller you could return a redirect response in different ways:
-
-```php
-return redirect('/users'); // case 1 not the best approach
-return redirect->to('/users'); // case 2 still not the best
-return redirect()->route('users); // case 3 a good practice
-return redirect()->back(); // case 4 if your previous endpoint was "/users" this is fine
-```
-
-Well, to test the redirect in many cases you can do something like:
-
-```php
-$response->assertRedirect('/users'); // this works for case 1, 2, 3
-$response->assertRedirect(route('users')); // this works for case 1, 2, 3
-```
-
-As you can see the only method that cant be tested easily is the one that use the helper `back()`, 
-Laravel can test the `redirect` method if this adds an explicit route, 
-so the 4 case only will work by testing only the redirect status, like:
-
-```php
-$response->assertStatus(302);
-$response->assertRedirect();
-```
-
-This maybe is not a granular test because we are only testing that a redirect is being executed, 
-but this applies when you need to use the `back()` helper 
-that is particularly useful in some situations.
-
-## Count items from a JSON response:
+## Tip # 4: Count items from a JSON response:
 
 In any response you can return a `JSON` if this is a collection or a resource collection like:
 
@@ -126,26 +114,29 @@ The `JSON` response would return a nested items one for every user in the collec
 }
 ```
 
-Then probable you would like to assert the total of items inside the data, 
-well this is a very useful tip, the Laravel response has a method 
-`JsonCount()` method, this would help to count the items in a JSON response:
+Probably you would like to `assert` the total of items inside the `data`
 
-If is an eloquent collection:
+Test an `Eloquent` `Collection`:
 
 ```php
 $response->assertJsonCount(5);
 ```
 
-If is a resource collection:
+Test a `JsonResource` `Collection`:
 
 ```php
 $response->assertJsonCount(5, 'data');
 ```
 
-Why add data? because the resources return all data formatted as you wish in a `JSON` 
-with a `data` key, so it will count the items (users) inside the data key.
+Why add `data`? because the resources return all `data` formatted as you wish in a wrapper
 
-## Test API endpoints:
+
+## Tip # 5: Assert Json Response
+
+
+
+
+## Tip # 6: Consume API endpoints with data wrapper
 
 The rest standard requires to get data as:
 
@@ -156,13 +147,32 @@ fetch.get('/endpoint')
     })
 ```
 
-Usually the structure of any request requires a response object with data property, 
-but Laravel resources add another data property to the response, 
-to remove this other property and stay with API REST standard, 
-Laravel provides a method to remove this other property, `withoutWrapping`:
+Laravel `JsonResource` return response in a `data` wrapper so the response should be handled in this way
+
+```javascript
+fetch.get('/endpoint')
+    .then(response => {
+        const data = response.data.data
+    })
+```
+
+Laravel provides a method to remove `data` wrapper using `withoutWrapping`,  
 
 ```php
 return new UserResource(User::first())->withoutWrapping();
+```
+
+Or by setting a property `public static $wrap = null;` inside the current `JsonResource`
+
+To remove the wrapper to all the resources you can override the default behavior in `AppServiceProvider`
+
+```php 
+use Illuminate\Http\Resources\Json\Resource;
+
+public function boot()
+{
+    Resource::withoutWrapping();
+}
 ```
 
 Thanks for reading, you are welcome to add comments to add more test tips!
