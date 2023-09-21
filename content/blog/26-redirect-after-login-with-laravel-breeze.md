@@ -67,4 +67,4 @@ or maliciously try to type a route that is not allowed.
 
 The same logic to redirect users by roles should be added to protect routes using `RedirectIfAuthenticated` middleware.
 
-Hope it is helpful, thanks for reading and as always happy coding!
+Thanks for reading!

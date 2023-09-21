@@ -1,5 +1,5 @@
 <script setup>
-import portfolio from "./scripts/portfolio";
+import portfolio from "../content/scripts/portfolio";
 import LightNavbar from "../layouts/components/light/LightNavbar";
 
 const selectedPortfolio = ref([]);
@@ -86,7 +86,7 @@ onMounted(() => {
 
       <div class="p-6 mx-auto text-right text-sm lg:text-lg">
         <a href="https://github.com/ArielMejiaDev?tab=repositories" target="_blank" rel="noreferrer" class=" mx-4 leading-7 font-extrabold text-indigo-600 no-underline bg-transparent border-0 border-gray-900 border-solid cursor-pointer box-border hover:text-gray-900">
-          You can see more project where I had been working on my github account →
+          More in my github account →
         </a>
       </div>
 

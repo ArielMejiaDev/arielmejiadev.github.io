@@ -1,5 +1,5 @@
 <script setup>
-import testimonials from "../scripts/testimonials";
+import testimonials from "../content/scripts/testimonials";
 
 const randomTestimonials = ref([]);
 

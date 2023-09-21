@@ -133,8 +133,80 @@ Why add `data`? because the resources return all `data` formatted as you wish in
 
 ## Tip # 5: Assert Json Response
 
+#### Assert List of Resources
 
+Asserting Json against `Collections`
 
+**Response**
+
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Anne Doe",
+      "status": "pending"
+    }
+  ]
+}
+```
+
+**Assertion**
+```php 
+$response
+    ->assertJson(fn (AssertableJson $json) =>
+        $json->has('users', 2, fn (AssertableJson $json) =>
+                $json->where('id', 1)
+                     ->where('name', 'John Doe')
+                     ->missing('password')
+                     ->etc()
+        )
+    );
+```
+
+`has` method allow to test the total of items inside the response
+
+`first()` method enables to assert the `first` element from the `collection`
+
+#### Assert Single Resource
+
+To `assert` partially response values we have `assertJsonFragment`
+
+```php 
+$response = $this->json('GET', '/api/user/1');
+
+$response
+    ->assertStatus(200)
+    ->assertJsonFragment([
+        'name' => 'Bill Murray',
+    ]);
+```
+
+It supports multiple array items
+
+It can be asserted using `Fluent Json` too
+
+```php 
+$response = $this->getJson('/api/users/1');
+ 
+$response
+    ->assertJson(fn (AssertableJson $json) =>
+        $json->where('id', 1)
+             ->where('name', 'Bill Murray')
+             ->whereNot('status', 'pending')
+             ->missing('password')
+             ->etc()
+    );
+```
+
+`etc()` method is required to only check few props instead of all
+
+[More about testing json apis in the Laravel docs](https://laravel.com/docs/10.x/http-tests#testing-json-apis){:target="_blank"}
 
 ## Tip # 6: Consume API endpoints with data wrapper
 
@@ -175,4 +247,4 @@ public function boot()
 }
 ```
 
-Thanks for reading, you are welcome to add comments to add more test tips!
+Thanks for reading!

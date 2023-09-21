@@ -44,12 +44,24 @@ In `EventServiceProvider` you can use any of these events:
 - `Registered`
 - `Verified`
 - `Logout`
+- `Authenticated`
 
-### Where is Fired Login Event
+## Where is Fired The Login Event
 
-Here the code where the login `event` is executed...
+The `AuthenticatedSessionController` has a `store` method that uses a `LoginRequest` 
+here you are able to find `Auth::guard` `facade` that returns an `Illuminate\Auth\SessionGuard` instance 
+that has an `attempt` method that follows this calls
 
-### Use Login Event
+`attempt() -> login() -> fireLoginEvent() -> new Login event`
+
+```php 
+protected function fireLoginEvent($user, $remember = false)
+{
+    $this->events?->dispatch(new Login($this->name, $user, $remember));
+}
+```
+
+## Use The Login Event
 
 In this example you need to create your listener `SendEmailStatusNotificationListener`
 
@@ -75,43 +87,9 @@ public function handle(Login $event)
 }
 ```
 
-### Where Is Fired The Verified Event?
+---
 
-You can check the `__invoke` method on `app/Http/Controllers/Auth/VerifyEmailController.php`
-
-```php
-    /**
-     * Mark the authenticated user's email address as verified.
-     */
-    public function __invoke(EmailVerificationRequest $request): RedirectResponse
-    {
-        // ...
-
-        if ($request->user()->markEmailAsVerified()) {
-            // Here Laravel already fire the verified event
-            event(new Verified($request->user()));
-        }
-
-        // ...
-    }
-```
-
-## Using Verified Event
-
-The same way you can handle this approach as an `event` in `EventServiceProvider`
-
-```php
-   use Illuminate\Auth\Events\Verified;
-
-    protected $listen = [
-        Verified::class => [
-            SendEmailStatusNotificationListener::class,
-        ],
-    ];
-```
-
-
-### Where Is Fired Registered Event?
+## Where Is Fired The Registered Event?
 
 There is a `store` method in `app/Http/Controllers/Auth/RegisteredUserController.php`
 
@@ -144,7 +122,7 @@ There is a `store` method in `app/Http/Controllers/Auth/RegisteredUserController
     }
 ```
 
-## Using the Registered event
+## Using The Registered event
 
 You can use it with the same `EventServiceProvider` approach
 
@@ -158,7 +136,46 @@ You can use it with the same `EventServiceProvider` approach
     ];
 ```
 
-## Where Is Fired Logout Event?
+---
+
+## Where Is Fired The Verified Event?
+
+You can check the `__invoke` method on `app/Http/Controllers/Auth/VerifyEmailController.php`
+
+```php
+    /**
+     * Mark the authenticated user's email address as verified.
+     */
+    public function __invoke(EmailVerificationRequest $request): RedirectResponse
+    {
+        // ...
+
+        if ($request->user()->markEmailAsVerified()) {
+            // Here Laravel already fire the verified event
+            event(new Verified($request->user()));
+        }
+
+        // ...
+    }
+```
+
+## Using The Verified Event
+
+The same way you can handle this approach as an `event` in `EventServiceProvider`
+
+```php
+   use Illuminate\Auth\Events\Verified;
+
+    protected $listen = [
+        Verified::class => [
+            SendEmailStatusNotificationListener::class,
+        ],
+    ];
+```
+
+---
+
+## Where Is Fired The Logout Event?
 
 It is fire by `destroy` method in `app\Http\Controllers\Auth\AuthenticatedSessionController`
 
@@ -202,6 +219,8 @@ It uses `Auth::guard` `facade` to return an `Illuminate\Auth\SessionGuard` insta
     }
 ```
 
+## Using The Logout Event
+
 So you can use the event to fire a `listener` when user signs out using the `EventServiceProvider` too
 
 ```php
@@ -217,6 +236,10 @@ So you can use the event to fire a `listener` when user signs out using the `Eve
 
 Personally, I feel it is a more elegant way to handle auth events on `EventServiceProvider`, 
 than adding the code directly into `App\Http\Controllers\Auth` controllers, it looks like a good standard
+
+## The Authenticated Event
+
+It works pretty similar to the remaining Auth Events, just take in mind that it is executed only when SessionGuard already has been set a `User`
 
 Thanks for reading!
 

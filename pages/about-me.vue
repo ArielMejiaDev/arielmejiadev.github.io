@@ -1,8 +1,8 @@
 <script setup>
 
 import LightNavbar from "../layouts/components/light/LightNavbar";
-import Certifications from "./components/Certifications";
-import Talks from "./components/Talks";
+import Certifications from "../components/Certifications";
+import Talks from "../components/Talks";
 </script>
 
 <template>

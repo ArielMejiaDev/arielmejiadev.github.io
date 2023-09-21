@@ -1,6 +1,6 @@
 <script setup>
 import LightInkedLayout from "../../layouts/components/light/LightInkedLayout";
-import BlogPost from "~/pages/components/blog/BlogPost.vue";
+import BlogPost from "../../components/blog/BlogPost";
 
 const { data } = await useAsyncData('blog', () => queryContent('/blog').sort({ id: -1, $numeric: true }).find())
 </script>

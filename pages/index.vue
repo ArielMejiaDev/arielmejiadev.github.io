@@ -1,6 +1,6 @@
 <script setup>
-import Hero from "./components/Hero";
-import Testimonials from "./components/Testimonials";
+import Hero from "../components/Hero";
+import Testimonials from "../components/Testimonials";
 import DarkNavbar from "../layouts/components/dark/DarkNavbar";
 </script>
 
