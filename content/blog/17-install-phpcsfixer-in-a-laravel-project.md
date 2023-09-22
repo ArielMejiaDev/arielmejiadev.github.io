@@ -1,6 +1,11 @@
 ---
-id: 24
+id: 17
+published: true
 title: Install PhpCsFixer in a Laravel Project
+date: May 17th, 2021
+description: Start using PHPCSFixer in your Laravel Projects and apply custom configurations
+cover_image:
+tags: Laravel, DevOps
 ---
 
 # Install PhpCsFixer in Laravel

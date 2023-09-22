@@ -1,10 +1,11 @@
 ---
 id: 1
-title: Redirect users after login with Laravel UI.
 published: true
-description: Redirect users by roles after login with Laravel.
-tags: Laravel
+title: Redirect users after login with Laravel UI
+date: June 1st, 2020
+description: Redirect users by roles after login with Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/ib3r5bxkcq1z4lnux38s.png
+tags: Laravel
 ---
 
 # Redirect users by roles after login with Laravel UI.

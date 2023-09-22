@@ -1,6 +1,11 @@
 ---
-id: 23
+id: 15
+published: true
 title: Auto Login For Development In Laravel
+date: March 21st, 2021
+description: Skipp Authentication Flow on Development in a secure way
+cover_image:
+tags: Laravel
 ---
 
 # Auto Login For Development In Laravel

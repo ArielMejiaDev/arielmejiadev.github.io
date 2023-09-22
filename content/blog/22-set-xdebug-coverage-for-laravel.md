@@ -1,6 +1,11 @@
 ---
-id: 20
-title: Set XDEBUG Coverage For Laravel
+id: 22
+published: true
+title: Set XDebug Coverage For Laravel
+date: March 28th, 2022
+description: Start using Test Coverage For a Laravel Project
+cover_image:
+tags: Laravel
 ---
 
 # Set XDEBUG Coverage For Laravel
@@ -22,7 +27,8 @@ php -v
 
 You should be able to see the `PHP` version, but also more data like `xdebug version` installed locally
 
-![Terminal output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qtrosu2w4vujpt2zqzc5.png)
+
+![Shell Screen Showing XDebug Details](/images/blog/20/shell-screen.png)
 
 
 If you have not installed `XDEBUG` here you would find [How to install xdebug](/blog/19-install-xdebug-in-macos)
@@ -39,7 +45,7 @@ php --ini
 
 In the second line the `php.ini` file location
 
-![Terminal output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dij99jtthgf24n8qkces.png)
+![Shell Screen Showing php.ini File Details](/images/blog/20/shell-screen-2.png)
 
 [//]: # (You can use a code editor like `vscode` or use `nano` or other editor to update the file)
 
@@ -74,7 +80,7 @@ php artisan test --coverage
 
 and it should work and return a test coverage output
 
-![Terminal output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yg7y70dkezrm78lh6m5b.png)
+![Shell Screen Showing Test Coverage Output in a Laravel App](/images/blog/20/shell-screen-3.png)
  
 ---
 

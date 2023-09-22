@@ -1,10 +1,11 @@
 ---
 id: 4
-title: Create an excerpt easy with Laravel
 published: true
-description: Create an excerpt would never be more easy with Laravel 7.
-tags: Laravel
+title: Create an excerpt easy with Laravel
+date: June 11th, 2020
+description: Create an excerpt would never be easier with Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/2hdj0wp7cyepu1zsccx7.png
+tags: Laravel
 ---
 
 # Create an Excerpt in Laravel

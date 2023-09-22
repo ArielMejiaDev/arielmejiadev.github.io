@@ -1,6 +1,11 @@
 ---
-id: 17
+id: 25
+published: true
 title: Set Github Credentials In MacOS
+date: April 26th, 2022
+description: Set Github Username & Email in your MacOS equipment
+cover_image:
+tags: DevOps
 ---
 
 # Set Github Credentials In MacOS
@@ -37,7 +42,7 @@ With this command you have your `SSH key` in the clipboard ready to paste it wit
 First Logged in, then go to the right up corner and open the user avatar menu, then click on `settings`, 
 then go to the left sidebar to the section `SSH Keys`, you are going to be able to see a form to add an `SSH Key`
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hd04ofaxci1s6egk9rex.png)
+![Gitlab Create SSH Screen](/images/blog/17/gitlab-screen.png)
 
 ## Add your SSH key in Github
 
@@ -46,4 +51,4 @@ you are going to be able to see in the left sidebar an `SSH & GPG Keys` section,
 click there, and you are going to be able to see all your `SSH keys`, and a green button to `add new SSH key`, 
 Here you can add your `new SSH key`
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fpdo0z20agkrbrv6cfe6.png)
+![Github Create SSH Screen](/images/blog/17/github-screen.png)

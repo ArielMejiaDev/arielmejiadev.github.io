@@ -1,6 +1,11 @@
 ---
-id: 15
+id: 28
+published: true
 title: Basic Github Actions for Laravel
+date: April 5th, 2023
+description: Start using Github Actions in your Laravel Projects with two basic workflows
+cover_image:
+tags: Laravel, DevOps
 ---
 
 # Basic Github Actions for Laravel

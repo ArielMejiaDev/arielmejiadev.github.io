@@ -1,13 +1,14 @@
 ---
-id: 10
-title: Customize the Laravel notifications template
+id: 9
 published: true
-description: How to customize the layout and CSS of Laravel notifications template.
-tags: Laravel, Mails, Notifications
+title: Customize The Laravel Notifications Template
+date: September 4th, 2020
+description: How to customize the layout and CSS of Laravel notifications template
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/j4fs0xukx32izpi6aafd.png
+tags: Laravel
 ---
 
-# Customize the Laravel notifications template
+# Customize The Laravel Notifications Template
 
 In order to customize `Laravel` notifications layout docs explain this command:
 

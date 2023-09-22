@@ -1,10 +1,11 @@
 ---
-id: 8
+id: 35
+published: false
 title: Fire an action when user is logged in or verified with Laravel
-published: true
+date: September 28th, 2023
 description: How to apply events, jobs, notifications or any other Laravel feature when user is logged in or the account is verified
-tags: Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/0vwwganile7ghvb54i2n.png
+tags: Laravel
 ---
 
 # Fired an event when user is logged-in

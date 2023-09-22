@@ -1,10 +1,11 @@
 ---
-id: 11
-title: Show API exceptions in Laravel.
+id: 10
 published: true
-description: Simple snippet to show exceptions on API development.
-tags: Laravel, API, exceptions
+title: Show API exceptions in Laravel.
+date: September 10th, 2020
+description: Simple snippet to show exceptions on API development
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/h8y1tc32lprt41y3szsu.png
+tags: Laravel
 ---
 
 # Show API exceptions in Laravel

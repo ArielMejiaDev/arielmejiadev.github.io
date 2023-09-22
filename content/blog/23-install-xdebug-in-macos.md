@@ -1,6 +1,11 @@
 ---
-id: 19
+id: 23
+published: true
 title: Install XDEBUG in MacOS
+date: April 23st, 2022
+description: Add Code Coverage easily by installing XDebug on your MacOS
+cover_image:
+tags: Laravel
 ---
 
 # Install XDEBUG in MacOS
@@ -85,6 +90,6 @@ php -v
 
 Now it should show something like this
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rtwmivxwpp9ptd0jl28q.png) 
+![Shell Screen Showing XDebug Installation Details](/images/blog/19/shell-screen.png)
 
 Thanks for reading!

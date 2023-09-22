@@ -1,10 +1,11 @@
 ---
 id: 2
-title: Set dynamic subdomains in Laravel Forge.
 published: true
-description: Set dynamic subdomains for multiple users, organizations or any other model in production with Laravel forge.
-tags: Laravel, Forge, Digital Ocean
+title: Set dynamic subdomains in Laravel Forge.
+date: June 3rd, 2020
+description: Set dynamic subdomains for multiple users, organizations or any other model in production with Laravel forge
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/lsqvvvptoj6y0tba76fq.png
+tags: Laravel, DevOps
 ---
 
 # Set dynamic subdomains in Laravel Forge
@@ -61,25 +62,23 @@ If all works it is time to make a deployment on **forge**, in this example I wil
 
 Just write your domain and be sure to check **allow wildcards**.
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/vfd8px6xgejcmv4qb8y5.png)
+![Create Server in Forge Screen](/images/blog/2/forge-screen.png)
 
 ## 2 Add your repo:
 
 The full repo name comes from the `github` repo url (highlighted):
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/8zgpvnopkq1etcbxc2gc.png)
+![Create Repository home in github](/images/blog/2/github-screen.png)
 
 This convention from `githubusername/repo` goes in the `repository` field in **forge**:
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/25wqwebeo2kbdxqimz5g.png)
-
+![Set Github in Forge Screen](/images/blog/2/forge-screen-2.png)
 
 ## 3 Set your environment:
 
 It needs to add the proper `APP_URL` value in the `.env` file on forge:
 
-
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/tm62xkk96b4s9w4xinmk.png)
+![Edit Env File in Forge Screen](/images/blog/2/forge-screen-3.png)
 
 
 Here I add the `BASE_URL` and make the `APP_URL` dynamically, but both can also be written.
@@ -93,20 +92,20 @@ You need to add some records:
 
 This is how your config should look like:
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/dpmxwdsycuk19ry2driy.png)
+![A Records in Digital Ocean Dashboard](/images/blog/2/digital-ocean-screen.png)
 
 ## 5 Create an API TOKEN
 
 On the sidebar, go to **API** section and generate a **new token**, copy the token and save it for later
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/vas5pd8xatp0ke3zo9bc.png)
+![Create Personal Access Tokens Digital Ocean Dashboard](/images/blog/2/digital-ocean-screen-2.png)
 
 ## 6 Configure the SSL certificate:
 
 This step is particularly complicated because sometimes it takes a couple of hours to properly propagate the changes 
 from **Digital Ocean**, this applies to any other provider.
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/iaks37yv9kg35m04rbqu.png)
+![Add SSL Certificate in Forge](/images/blog/2/forge-screen-4.png)
 
 Sometimes it works immediately, and sometimes takes a while and needs more time to get propagation, 
 between 2 or 6 hours, but it can take more.

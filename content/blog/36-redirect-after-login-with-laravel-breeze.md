@@ -1,7 +1,10 @@
 ---
-id: 26
+id: 36
+published: false
 title: Redirect After Login with Laravel Breeze
-description: Redirect users by roles after login with Laravel Breeze.
+date: September 29th, 2023
+description: Redirect users by roles after login with Laravel Breeze
+cover_image:
 tags: Laravel
 ---
 
