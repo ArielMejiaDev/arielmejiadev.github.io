@@ -6,7 +6,7 @@ import LightNavbar from "./LightNavbar";
 <template>
   <NuxtLayout>
 
-    <section class="overflow-hidden text-gray-700 body-font bg-cover bg-no-repeat relative" style="background: url('/images/splatters/splatter.jpeg')">
+    <section class="overflow-hidden min-h-screen text-gray-700 body-font bg-cover bg-no-repeat relative" style="background: url('/images/splatters/splatter.jpeg')">
 
     <LightNavbar />
 
@@ -32,7 +32,7 @@ import LightNavbar from "./LightNavbar";
 
       <slot />
 
-      <div class="p-6 mx-auto text-right text-sm lg:text-lg">
+      <div class="p-6 mt-10 mx-auto text-right text-sm lg:text-lg flex items-center justify-center space-x-10">
 
         <slot name="footer" />
 

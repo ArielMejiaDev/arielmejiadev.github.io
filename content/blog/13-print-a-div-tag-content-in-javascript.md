@@ -5,7 +5,7 @@ title: Print a div tag content with Javascript
 date: October 23rd, 2020
 description: Add a script to print just an element of a html page
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/9zg2pc4gixlazm54nvj3.png
-tags: Javascript
+tags: [Javascript]
 ---
 
 # Print a div tag content with Javascript

@@ -4,7 +4,7 @@ published: true
 title: Null Coalescing Operator In Javascript and PHP
 date: July 9th, 2020
 description: Avoid Exception - Trying to get "x" property from null in Javascript and PHP
-tags: Laravel, Javascript
+tags: [Laravel, Javascript]
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/soado5pa6t0t7adrfhd3.png
 ---
 

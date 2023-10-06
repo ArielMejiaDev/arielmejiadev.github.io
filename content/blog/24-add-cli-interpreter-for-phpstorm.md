@@ -5,7 +5,7 @@ title: Add cli interpreter for PHPStorm
 date: April 23st, 2022
 description: Run tests using the PHPStorm UI starting your tests faster and in a granular way 
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Add cli interpreter for PHPStorm

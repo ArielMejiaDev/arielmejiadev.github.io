@@ -5,7 +5,7 @@ title: Data-providers In Laravel Tests
 date: July 21st, 2021
 description: Stay Dry in your PHPUnit tests using Data-Providers
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Data-Providers In Laravel Tests

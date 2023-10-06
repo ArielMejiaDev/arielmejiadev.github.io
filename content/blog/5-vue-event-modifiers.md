@@ -5,7 +5,7 @@ title: VueJS Event Modifiers Example
 date: June 20th, 2020
 description: Catch when user press enter with Vue modifiers
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/k98qpqsfyghh2k8kj2b1.png
-tags: Vue
+tags: [Vue]
 ---
 
 # Vue Event Modifiers Example

@@ -5,7 +5,7 @@ title: Set dynamic subdomains in Laravel Forge.
 date: June 3rd, 2020
 description: Set dynamic subdomains for multiple users, organizations or any other model in production with Laravel forge
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/lsqvvvptoj6y0tba76fq.png
-tags: Laravel, DevOps
+tags: [Laravel, DevOps]
 ---
 
 # Set dynamic subdomains in Laravel Forge

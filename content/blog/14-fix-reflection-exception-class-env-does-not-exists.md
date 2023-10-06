@@ -5,7 +5,7 @@ title: Fix Telescope ReflectionException - Class env does not exist
 date: November 12th, 2020
 description: Sometimes Telescope got an exception while tests are running... fix it with only one command
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Fix Telescope ReflectionException Class `env` does not exist

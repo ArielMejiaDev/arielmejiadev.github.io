@@ -5,7 +5,7 @@ title: Test redirects after login by roles with Laravel
 description: Make assertions to test redirects by role after login
 date: September 15th, 2020
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/o4cg7w9ekjqkb99xcp51.png
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Test redirects after login with Laravel

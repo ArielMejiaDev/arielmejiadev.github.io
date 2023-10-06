@@ -5,7 +5,7 @@ title: Set XDebug Coverage For Laravel
 date: March 28th, 2022
 description: Start using Test Coverage For a Laravel Project
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Set XDEBUG Coverage For Laravel

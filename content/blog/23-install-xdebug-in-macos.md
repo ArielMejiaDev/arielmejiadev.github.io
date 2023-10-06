@@ -5,7 +5,7 @@ title: Install XDEBUG in MacOS
 date: April 23st, 2022
 description: Add Code Coverage easily by installing XDebug on your MacOS
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Install XDEBUG in MacOS

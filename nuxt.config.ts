@@ -9,12 +9,18 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
   ],
   content: {
     highlight: {
       // Theme used in all color schemes.
       theme: 'dracula'
-    }
+    },
+    markdown: { remarkPlugins: ['remark-reading-time'] },
   },
+  runtimeConfig: {
+    public: {
+      gtagId: 'UA-160385795-1',
+    }
+  }
 })

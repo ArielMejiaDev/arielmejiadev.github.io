@@ -5,7 +5,7 @@ title: Run Tests Automatically Before Pushing Code In Laravel
 date: June 3rd, 2021
 description: Do not push code with failing tests, set Husky to execute test before pushing your code
 cover_image:
-tags: Laravel, DevOps
+tags: [Laravel, DevOps]
 ---
 
 # Run Tests Automatically Before Pushing Code In Laravel

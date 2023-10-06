@@ -5,7 +5,7 @@ title: Show API exceptions in Laravel.
 date: September 10th, 2020
 description: Simple snippet to show exceptions on API development
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/h8y1tc32lprt41y3szsu.png
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Show API exceptions in Laravel

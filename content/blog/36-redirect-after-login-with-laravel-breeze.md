@@ -5,7 +5,7 @@ title: Redirect After Login with Laravel Breeze
 date: September 29th, 2023
 description: Redirect users by roles after login with Laravel Breeze
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Redirect users by roles after login with Laravel Breeze.

@@ -5,7 +5,7 @@ title: Use route model binding on Middlewares in Laravel
 description: How do you handle a route model binding on Middleware
 date: July 18th, 2020
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/2gkj91aqrqtznh945eo7.png
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Use route model binding on Middlewares in Laravel

@@ -5,7 +5,7 @@ title: Laravel API Testing Tips
 date: September 27th, 2023
 description: Some useful tips to test your Laravel API
 cover_image:
-tags: Laravel
+tags: [Laravel]
 ---
 
 # Laravel API Testing Tips
