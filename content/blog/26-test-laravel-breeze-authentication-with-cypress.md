@@ -6,6 +6,6 @@ date: October 18th, 2022
 description: Add your first Cypress tests on Laravel Breeze Authentication
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Test Laravel Breeze Authentication With Cypress

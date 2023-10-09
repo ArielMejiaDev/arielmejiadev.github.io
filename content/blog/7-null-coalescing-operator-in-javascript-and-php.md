@@ -6,9 +6,9 @@ date: July 9th, 2020
 description: Avoid Exception - Trying to get "x" property from null in Javascript and PHP
 tags: [Laravel, Javascript]
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/soado5pa6t0t7adrfhd3.png
+announcement_banner:
+announcement_link:
 ---
-
-# Null Coalescing Operator In Javascript & PHP
 
 Sometimes there is no way to know if a variable has a value, or it is just null, 
 to avoid `getting x property from null` exceptions.

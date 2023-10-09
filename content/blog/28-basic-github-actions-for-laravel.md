@@ -6,9 +6,9 @@ date: April 5th, 2023
 description: Start using Github Actions in your Laravel Projects with two basic workflows
 cover_image:
 tags: [Laravel, DevOps]
+announcement_banner:
+announcement_link:
 ---
-
-# Basic Github Actions for Laravel
 
 This action files require a `.env.ci` file that is just a copy from `.env.example`, 
 feel free to adjust this files for your project requirements

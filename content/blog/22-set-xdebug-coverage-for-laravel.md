@@ -6,9 +6,9 @@ date: March 28th, 2022
 description: Start using Test Coverage For a Laravel Project
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Set XDEBUG Coverage For Laravel
 
 ***Laravel 9*** implement a new feature added by **Nuno Maduro** to get code coverage, 
 the command is `php artisan test --coverage` 

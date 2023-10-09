@@ -6,9 +6,9 @@ date: September 29th, 2023
 description: Redirect users by roles after login with Laravel Breeze
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Redirect users by roles after login with Laravel Breeze.
 
 In namespace `App\Http\Controllers\Auth\AuthenticatedSessionController.php`:
 

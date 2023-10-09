@@ -6,9 +6,9 @@ date: December 11th, 2022
 description: Use Laravel ENV variables inside your Javascript Files
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Load Laravel ENV Variables Into Javascript Files With Vite
 
 Let's imagine that our `.env` file has this value
 

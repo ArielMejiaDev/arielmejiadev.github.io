@@ -6,9 +6,9 @@ date: May 17th, 2021
 description: Start using PHPCSFixer in your Laravel Projects and apply custom configurations
 cover_image:
 tags: [Laravel, DevOps]
+announcement_banner:
+announcement_link:
 ---
-
-# Install PhpCsFixer in Laravel
 
 Code sniffer Fixer apply syntax rules to our `PHP` code to follow `PSR-standards`
 

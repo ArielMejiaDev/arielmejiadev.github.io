@@ -6,9 +6,9 @@ date: June 20th, 2020
 description: Use An Easy and Flexible Transition To Make A Slide Effect On Vue
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/xp9u58l68av6tq04j8si.png
 tags: [Vue]
+announcement_banner:
+announcement_link:
 ---
-
-# Easy Transition Slide Effect With VueJS
 
 ## Classes
 

@@ -6,9 +6,9 @@ date: September 28th, 2023
 description: How to apply events, jobs, notifications or any other Laravel feature when user is logged in or the account is verified
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/0vwwganile7ghvb54i2n.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Fired an event when user is logged-in
 
 There are cases when is required to fire an `event`, a `job` or maybe `notify` 
 something when `user` is `logged in` or the account is `verified`, there are two ways of handle this actions

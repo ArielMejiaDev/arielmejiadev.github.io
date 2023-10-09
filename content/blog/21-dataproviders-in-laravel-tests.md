@@ -6,9 +6,9 @@ date: July 21st, 2021
 description: Stay Dry in your PHPUnit tests using Data-Providers
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Data-Providers In Laravel Tests
 
 `Data-providers` execute the same test multiple times with different data
 

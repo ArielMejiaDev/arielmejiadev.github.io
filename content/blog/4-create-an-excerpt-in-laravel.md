@@ -6,9 +6,9 @@ date: June 11th, 2020
 description: Create an excerpt would never be easier with Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/2hdj0wp7cyepu1zsccx7.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Create an Excerpt in Laravel
 
 In Laravel 7 this is a really easy feature by using the `Str` class from `Illuminate\Support\Str` namespace.
 

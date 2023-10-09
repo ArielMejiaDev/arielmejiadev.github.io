@@ -6,9 +6,9 @@ date: October 14th, 2020
 description: Get only the columns that your query requires from a model, and it's relationship without issues
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/c5vik4dlgowawfh51h6t.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Fix - Ambiguous Column Eloquent Query Exception in Laravel
 
 ***
 **Issue**: An `Eloquent` Model with a `relationship`, both have a `column` that matches the same `name`

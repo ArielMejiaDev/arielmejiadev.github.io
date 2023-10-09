@@ -6,9 +6,9 @@ date: September 10th, 2020
 description: Simple snippet to show exceptions on API development
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/h8y1tc32lprt41y3szsu.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Show API exceptions in Laravel
 
 ## Check Request Headers
 

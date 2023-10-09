@@ -6,9 +6,9 @@ date: March 21st, 2021
 description: Skipp Authentication Flow on Development in a secure way
 cover_image:
 tags: [Laravel]
+announcement_banner: 
+announcement_link: 
 ---
-
-# Auto Login For Development In Laravel
 
 Skipp adding credentials to test UI all the time for development
 

@@ -6,9 +6,9 @@ date: June 9st, 2021
 description: Add new values to a form request before validation in Laravel
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Form Requests - Prepare for Validation
 
 Sometimes is necessary to `compute/get` a value based on a `request` and then apply form request validation on it
 

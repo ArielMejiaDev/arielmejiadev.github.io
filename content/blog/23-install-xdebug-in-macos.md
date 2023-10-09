@@ -6,9 +6,9 @@ date: April 23st, 2022
 description: Add Code Coverage easily by installing XDebug on your MacOS
 cover_image:
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Install XDEBUG in MacOS
 
 ## Check the PHP current version
 

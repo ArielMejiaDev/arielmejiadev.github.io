@@ -16,11 +16,11 @@ export default defineNuxtConfig({
       // Theme used in all color schemes.
       theme: 'dracula'
     },
-    markdown: { remarkPlugins: ['remark-reading-time'] },
+    markdown: { anchorLinks: false, remarkPlugins: ['remark-reading-time'] },
   },
   runtimeConfig: {
     public: {
       gtagId: 'UA-160385795-1',
     }
-  }
+  },
 })

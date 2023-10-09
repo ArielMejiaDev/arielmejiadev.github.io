@@ -6,9 +6,9 @@ date: September 10th, 2023
 description: Resolve local CORS issues during development between a localhost API and NuxtJS app
 cover_image:
 tags: [Laravel, Vue]
+announcement_banner:
+announcement_link:
 ---
-
-# Fix NuxtJS Laravel CORS Issue
 
 ## Access apps from the browser
 

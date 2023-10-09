@@ -6,10 +6,9 @@ date: June 1st, 2020
 description: Redirect users by roles after login with Laravel
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/ib3r5bxkcq1z4lnux38s.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Redirect users by roles after login with Laravel UI.
-
 
 ::alert
 #title

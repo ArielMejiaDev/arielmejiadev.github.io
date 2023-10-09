@@ -6,9 +6,9 @@ date: June 11th, 2020
 description: Create a custom blade directive to print an amount in money format easy
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/7wfui6zymk8r1uglcva2.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Laravel blade directive for money format
 
 ## Create a new service provider:
 

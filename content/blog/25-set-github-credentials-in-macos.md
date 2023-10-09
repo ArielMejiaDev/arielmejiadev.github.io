@@ -6,9 +6,9 @@ date: April 26th, 2022
 description: Set Github Username & Email in your MacOS equipment
 cover_image:
 tags: [DevOps]
+announcement_banner:
+announcement_link:
 ---
-
-# Set Github Credentials In MacOS
 
 ## Set git username and email
 

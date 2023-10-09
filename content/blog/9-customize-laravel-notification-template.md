@@ -6,9 +6,9 @@ date: September 4th, 2020
 description: How to customize the layout and CSS of Laravel notifications template
 cover_image: https://dev-to-uploads.s3.amazonaws.com/i/j4fs0xukx32izpi6aafd.png
 tags: [Laravel]
+announcement_banner:
+announcement_link:
 ---
-
-# Customize The Laravel Notifications Template
 
 In order to customize `Laravel` notifications layout docs explain this command:
 
