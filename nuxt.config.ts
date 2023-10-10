@@ -23,4 +23,10 @@ export default defineNuxtConfig({
       gtagId: 'UA-160385795-1',
     }
   },
+  target: 'static',
+  nitro: {
+    prerender: {
+      failOnError: false
+    }
+  }
 })

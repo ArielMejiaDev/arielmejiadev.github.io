@@ -4,7 +4,6 @@ published: true
 title: Run Tests Automatically Before Pushing Code In Laravel
 date: June 3rd, 2021
 description: Do not push code with failing tests, set Husky to execute test before pushing your code
-cover_image:
 tags: [Laravel, DevOps]
 announcement_banner:
 announcement_link:
@@ -22,7 +21,7 @@ npm install husky@4 --save-dev
 
 On `package.json` file add this code
 
-```json
+```javascript
     "husky": {
         "hooks": {
             "pre-push": "php artisan test"
@@ -41,8 +40,7 @@ any other package for `static analyze` the links are at the end of the post
 
 You can run any package or custom command, in this case I will add a artisan command from `PHPInsights`.
 
-
-```json
+```javascript
     "husky": {
         "hooks": {
             "pre-commit": "php artisan insights -v",
@@ -55,9 +53,9 @@ You can run any package or custom command, in this case I will add a artisan com
 
 You can configure `Husky` to add more than one command on any `hook` by adding `&&` between every command
 
-In this case it would be configure to run `PHPInsights` and `PHPCSFixer`, but you can run any package or custom command
+In this case it would be configured to run `PHPInsights` and `PHPCSFixer`, but you can run any package or custom command
 
-```json
+```javascript
     "husky": {
         "hooks": {
             "pre-commit": "php artisan insights -v && vendor/bin/php-cs-fixer fix",

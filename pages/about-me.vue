@@ -67,7 +67,7 @@ useSeoMeta({
             <div class="relative flex justify-center lg:justify-start items-center mt-10">
               <a href="#certifications"
                  class="text-base leading-tight tracking-tighter transition duration-150 ease-in-out text-purple-600 md:py-2 font-extrabold md:text-lg xl:text-xl hover:text-purple-700 hover:underline">
-                My Certifications
+                My Certifications &darr;
               </a>
             </div>
 

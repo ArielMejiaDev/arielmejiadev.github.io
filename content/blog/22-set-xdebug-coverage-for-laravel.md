@@ -4,18 +4,15 @@ published: true
 title: Set XDebug Coverage For Laravel
 date: March 28th, 2022
 description: Start using Test Coverage For a Laravel Project
-cover_image:
 tags: [Laravel]
 announcement_banner:
 announcement_link:
 ---
 
 ***Laravel 9*** implement a new feature added by **Nuno Maduro** to get code coverage, 
-the command is `php artisan test --coverage` 
-
+the command is `php artisan test --coverage`
 
 This post explains how to set `xdebug` locally in a `MacOS` environment
-
 
 ## Check that you have installed Xdebug
 
@@ -27,9 +24,7 @@ php -v
 
 You should be able to see the `PHP` version, but also more data like `xdebug version` installed locally
 
-
 ![Shell Screen Showing XDebug Details](/images/blog/20/shell-screen.png)
-
 
 If you have not installed `XDEBUG` here you would find [How to install xdebug](/blog/19-install-xdebug-in-macos)
 
@@ -46,10 +41,6 @@ php --ini
 In the second line the `php.ini` file location
 
 ![Shell Screen Showing php.ini File Details](/images/blog/20/shell-screen-2.png)
-
-[//]: # (You can use a code editor like `vscode` or use `nano` or other editor to update the file)
-
-[//]: # (Here I would add an example with both for `php 8.0.x` as it is required for `Laravel 9`)
 
 ---
 
