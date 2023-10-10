@@ -37,6 +37,17 @@ const submit = function () {
 
   window.open(link, '_blank', 'noreferrer');
 }
+
+useSeoMeta({
+  title: 'Ariel Mejia Dev - Contact Me',
+  ogTitle: 'Ariel Mejia Dev - Contact Me',
+  description: 'Check my technical stuffs, experience & open source work',
+  ogDescription: 'Check my technical stuffs, experience & open source work',
+  ogImage: 'https://arielmejia.dev/images/preview.png',
+  ogUrl: 'https://arielmejia.dev/contact-me',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://arielmejia.dev/images/preview.png'
+});
 </script>
 
 <template>

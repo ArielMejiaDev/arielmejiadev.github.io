@@ -2,6 +2,17 @@
 import Hero from "../components/Hero";
 import Testimonials from "../components/Testimonials";
 import DarkNavbar from "../layouts/components/dark/DarkNavbar";
+
+useSeoMeta({
+  title: 'Ariel Mejia Dev - Home',
+  ogTitle: 'Ariel Mejia Personal Site',
+  description: 'Ariel Mejia Personal Site, You can check my blog, technical stuffs, experience & open source work',
+  ogDescription: 'Ariel Mejia Personal Site, You can check my blog, technical stuffs, experience & open source work',
+  ogImage: 'https://arielmejia.dev/images/preview.png',
+  ogUrl: 'https://arielmejia.dev',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://arielmejia.dev/images/preview.png'
+});
 </script>
 
 <template>

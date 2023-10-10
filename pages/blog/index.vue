@@ -11,7 +11,6 @@ const currentPage = ref(parseInt(route.query.page) || 1);
 const paginationSizePerPage = 5;
 
 const { data } = await useAsyncData('blog', () => queryContent('/blog')
-    .where({published: true})
     .sort({ id: -1, $numeric: true })
     .limit(paginationSizePerPage)
     .skip(currentPage.value * paginationSizePerPage)
@@ -23,7 +22,6 @@ const nextPage = async function () {
   router.replace({ path: route.fullPath, query: { page: currentPage.value}});
 
   data.data = await useAsyncData('blog', () => queryContent('/blog')
-      .where({published: true})
       .sort({ id: -1, $numeric: true })
       .limit(paginationSizePerPage)
       .skip(currentPage.value * paginationSizePerPage)
@@ -36,12 +34,22 @@ const previousPage = async function () {
   router.replace({ path: route.fullPath, query: { page: currentPage.value}});
 
   data.data = await useAsyncData('blog', () => queryContent('/blog')
-      .where({published: true})
       .sort({ id: -1, $numeric: true })
       .limit(paginationSizePerPage)
       .skip(currentPage.value * paginationSizePerPage)
       .find());
 }
+
+useSeoMeta({
+  title: 'Ariel Mejia Dev - Blog',
+  ogTitle: 'Ariel Mejia Dev - Blog',
+  description: 'Check my technical stuffs, experience & open source work',
+  ogDescription: 'Check my technical stuffs, experience & open source work',
+  ogImage: 'https://arielmejia.dev/images/preview.png',
+  ogUrl: 'https://arielmejia.dev/blog',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://arielmejia.dev/images/preview.png'
+});
 </script>
 
 <template>

@@ -12,6 +12,17 @@ const { data } = await useAsyncData(`post-${route.params.slug}`, () => queryCont
 
 const disqusIdentifier = `/blog/${data?.id}`;
 const disqusUrl = `https://arielmejia.dev/blog/${data?.slug}`;
+
+useSeoMeta({
+  title: ()=> `Ariel Mejia Dev Blog - ${data.value.title}`,
+  ogTitle: () => `Ariel Mejia Dev Blog - ${data.value.title}`,
+  description: ()=> `${data.value.title}`,
+  ogDescription: ()=> `${data.value.title}`,
+  ogImage: () => `https://arielmejia.dev/images/blog/cover_images/${data.value.id}.png`,
+  ogUrl: () => `https://arielmejia.dev/blog/${data.value.slug}`,
+  twitterCard: 'summary_large_image',
+  twitterImage: `https://arielmejia.dev/images/blog/cover_images/${data.value.id}.png`
+});
 </script>
 
 <template>

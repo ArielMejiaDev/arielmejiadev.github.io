@@ -17,6 +17,17 @@ const selectFilter = function (filter) {
 onMounted(() => {
   selectFilter(currentFilter.value);
 });
+
+useSeoMeta({
+  title: 'Ariel Mejia Dev - Portfolio',
+  ogTitle: 'Ariel Mejia Dev - Portfolio',
+  description: 'Check my technical stuffs, experience & open source work',
+  ogDescription: 'Check my technical stuffs, experience & open source work',
+  ogImage: 'https://arielmejia.dev/images/preview.png',
+  ogUrl: 'https://arielmejia.dev/portfolio',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://arielmejia.dev/images/preview.png'
+});
 </script>
 
 <template>

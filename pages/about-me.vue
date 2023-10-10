@@ -1,8 +1,18 @@
 <script setup>
-
 import LightNavbar from "../layouts/components/light/LightNavbar";
 import Certifications from "../components/Certifications";
 import Talks from "../components/Talks";
+
+useSeoMeta({
+  title: 'Ariel Mejia Dev - About Me',
+  ogTitle: 'Ariel Mejia Dev - About Me',
+  description: 'Check my technical stuffs, experience & open source work',
+  ogDescription: 'Check my technical stuffs, experience & open source work',
+  ogImage: 'https://arielmejia.dev/images/preview.png',
+  ogUrl: 'https://arielmejia.dev/about-me',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://arielmejia.dev/images/preview.png'
+});
 </script>
 
 <template>
