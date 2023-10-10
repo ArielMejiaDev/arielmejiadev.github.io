@@ -1,9 +1,9 @@
 ---
 id: 29
 published: true
-title: Run Duster in Laravel
+title: Lint and Fix your Laravel Code with Duster and Husky
 date: July 19th, 2023
-description: Lint & Fix your Application Code by running just one tool
+description: Lint and Fix your Laravel Code with Duster and Husky
 tags: [Laravel]
 cover_image:
 announcement_banner:

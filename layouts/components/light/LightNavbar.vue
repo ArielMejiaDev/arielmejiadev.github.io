@@ -18,7 +18,7 @@
       <nav class="flex flex-wrap items-center justify-between sm:justify-center text-base sm:mx-auto">
         <NuxtLink to="/portfolio" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">Portfolio</NuxtLink>
         <NuxtLink to="/about-me" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">About Me</NuxtLink>
-        <NuxtLink to="/blog" rel="noreferrer" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">Blog</NuxtLink>
+        <a href="/blog" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">Blog</a>
         <a href="https://open.spotify.com/show/4t6vLTMNvuCWnbAvNISILQ?si=0c72521c08a9430e" target="_blank" rel="noreferrer" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">Podcast</a>
         <NuxtLink to="/contact-me" class="sm:mx-5 text-xs sm:text-sm font-semibold text-gray-700 hover:text-gray-500 my-1">Contact me</NuxtLink>
       </nav>

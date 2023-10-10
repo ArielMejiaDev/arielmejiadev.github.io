@@ -6,7 +6,7 @@ const route = useRoute();
 
 const router = useRouter();
 
-const currentPage = ref(parseInt(route.query.page) || 1);
+const currentPage = ref(parseInt(route.query.page) || 0);
 
 const paginationSizePerPage = 5;
 
@@ -84,8 +84,8 @@ useSeoMeta({
 
 
     <template v-slot:footer>
-      <div class="bg-white max-w-5xl w-full px-6 lg:px-8 flex items-center" :class="currentPage > 1 ? 'justify-between' : 'justify-end'">
-        <button v-if="currentPage > 1" @click="previousPage" class="mx-4 leading-7 font-extrabold text-indigo-600 no-underline bg-transparent border-0 border-gray-900 border-solid cursor-pointer box-border hover:text-gray-900">
+      <div class="bg-white max-w-5xl w-full px-6 lg:px-8 flex items-center" :class="currentPage > 0 ? 'justify-between' : 'justify-end'">
+        <button v-if="currentPage > 0" @click="previousPage" class="mx-4 leading-7 font-extrabold text-indigo-600 no-underline bg-transparent border-0 border-gray-900 border-solid cursor-pointer box-border hover:text-gray-900">
           &larr; Previous Page
         </button>
         <button v-if="data.length > 0" @click="nextPage" class="mx-4 leading-7 font-extrabold text-indigo-600 no-underline bg-transparent border-0 border-gray-900 border-solid cursor-pointer box-border hover:text-gray-900">
