@@ -1,1 +1,0 @@
-import{r as u,H as c,u as f,I as l,J as p}from"./entry.fad53452.js";function d(t,a){const e=u({});return c(()=>{const s=l(t),{title:n,titleTemplate:o,...r}=s;e.value={title:n,titleTemplate:o,meta:p(r)}}),f(e,a)}export{d as u};
